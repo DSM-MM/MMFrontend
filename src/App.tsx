@@ -1,9 +1,10 @@
-import React from "react";
+import { Global } from '@emotion/react';
+import { GlobalStyle } from './styles/global';
 
 function App() {
   return (
    <>
-    <span>Hello world</span>
+    <Global styles={GlobalStyle} />
    </>
   );
 }
