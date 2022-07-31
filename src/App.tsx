@@ -1,11 +1,16 @@
-import { Global } from '@emotion/react';
-import { GlobalStyle } from './styles/global';
+import { Global } from "@emotion/react";
+import { BrowserRouter } from "react-router-dom";
+import UserRouter from "./router/UserRouter";
+import { GlobalStyle } from "./styles/global";
 
 function App() {
   return (
-   <>
-    <Global styles={GlobalStyle} />
-   </>
+    <>
+      <BrowserRouter>
+        <Global styles={GlobalStyle} />
+        <UserRouter />
+      </BrowserRouter>
+    </>
   );
 }
 
