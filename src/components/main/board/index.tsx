@@ -9,7 +9,9 @@ const Board = () => {
       <S.BoardWrapper>
         <S.Board>
           <span className="title">오 늘 의 명 언</span>
-          <span className="famous">{FamousSaying[rand(0, FamousSaying.length - 1)]}</span>
+          <span className="famous">
+            {FamousSaying[rand(0, FamousSaying.length - 1)]}
+          </span>
         </S.Board>
       </S.BoardWrapper>
     </>
