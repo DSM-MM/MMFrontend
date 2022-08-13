@@ -15,6 +15,7 @@ export const Board = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 5%;
   color: #ffffff;
   .title {
     padding-top: 3%;
