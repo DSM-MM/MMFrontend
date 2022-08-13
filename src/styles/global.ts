@@ -8,9 +8,16 @@ export const GlobalStyle = css`
     font-family: "Noto Sans";
     outline: none;
     text-decoration: none;
-    border: none;
+    border: 0;
+    outline: unset;
   }
-  body{
+  a {
+    text-decoration: none;
+  }
+  button {
+    cursor: pointer;
+  }
+  body {
     width: 100%;
     height: 100%;
   }
