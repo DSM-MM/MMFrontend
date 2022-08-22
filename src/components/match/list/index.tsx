@@ -7,20 +7,24 @@ import {
   Field,
 } from "../../../constance/filterList";
 
-const FilterList = () => {
+function FilterList() {
   const [click, setClick] = useState<boolean>(false);
   return (
     <>
       <S.MentoTitle>멘토 목록</S.MentoTitle>
       <S.FieldWrapper>
         {Field.map((value: string, index: number) => (
-          <div key={index} onClick={() => setClick(true)}>
+          <S.TopListBackground
+            key={index}
+            width={index === 0 ? 10 : 3}
+            onClick={() => setClick(true)}
+          >
             <span>{value}</span>
-          </div>
+          </S.TopListBackground>
         ))}
       </S.FieldWrapper>
+      
     </>
   );
-};
-
+}
 export default FilterList;
