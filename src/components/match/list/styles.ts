@@ -27,6 +27,7 @@ export const TopListBackground = styled.div<WidthProps>`
   justify-content: center;
   align-items: center;
   border-radius: 1rem;
+  cursor: pointer;
   &:hover {
     background-color: #343434;
     color: #ffffff;
