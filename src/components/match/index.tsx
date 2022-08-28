@@ -1,5 +1,5 @@
 import Header from "../common/header/index";
-import FilterList from "./list/index";
+import List from "./list/index";
 
 const Match = () => {
   return (
@@ -7,7 +7,7 @@ const Match = () => {
       <div style={{ display: "flex" }}>
         <Header />
         <div style={{ display: "flex", flexDirection: "column" }}>
-          <FilterList />
+          <List />
         </div>
       </div>
     </>

@@ -1,5 +1,7 @@
 import * as S from "./styles";
-import React, { useState, useEffect } from "react";
+import styled from "@emotion/styled";
+import { CardInformation } from "../../../constance/card";
+import Card from "../card";
 import {
   AppDevelop,
   WebDevelop,
@@ -7,7 +9,7 @@ import {
   Field,
 } from "../../../constance/filterList";
 
-function FilterList() {
+function List() {
   const click: boolean[] = new Array(3).fill(false);
   return (
     <>
@@ -42,7 +44,24 @@ function FilterList() {
           ))}
         </>
       ) : null}
+      <CardListWrapper>
+        {CardInformation.map((v, i) => (
+          <Card
+            key={i}
+            job={v.job}
+            name={v.name}
+            introduce={v.introduce}
+            Gpa={v.gpa}
+          />
+        ))}
+      </CardListWrapper>
     </>
   );
 }
-export default FilterList;
+
+const CardListWrapper = styled.div`
+  width: 60%;
+  display: flex;
+  flex-wrap: wrap;
+`;
+export default List;
