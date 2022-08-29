@@ -5,24 +5,22 @@ interface PropsType {
   job: string;
   name: string;
   introduce: string;
-  Gpa: number;
+  gpa: number;
 }
 
-const Card = ({ job, name, introduce, Gpa }: PropsType) => {
-  return (
-    <>
-      <CardBackground>
-        <Job>{job}</Job>
-        <Profile>
-          <img src={ProfileLogo} alt="ProfileLogo" />
-        </Profile>
-        <Text>{name}</Text>
-        <Text>"{introduce}"</Text>
-        <GpaText>평점: {Gpa}</GpaText>
-      </CardBackground>
-    </>
-  );
-};
+const Card = ({ job, name, introduce, gpa }: PropsType) => (
+  <>
+    <CardBackground>
+      <Job>{job}</Job>
+      <Profile>
+        <img src={ProfileLogo} alt="ProfileLogo" />
+      </Profile>
+      <Text>{name}</Text>
+      <Text>"{introduce}"</Text>
+      <GpaText>평점: {gpa}</GpaText>
+    </CardBackground>
+  </>
+);
 
 const CardBackground = styled.div`
   width: 200px;
