@@ -5,7 +5,6 @@ type WidthProps = {
 };
 
 export const MentoTitle = styled.span`
-  padding: 5vh 0 0 20vw;
   font-style: normal;
   font-weight: 700;
   font-size: 32px;
@@ -13,10 +12,8 @@ export const MentoTitle = styled.span`
 `;
 
 export const FieldWrapper = styled.div`
-  width: 100%;
+  width: 70%;
   display: flex;
-  justify-content: space-around;
-  margin-left: 17vw;
   margin-top: 3vh;
 `;
 
@@ -27,6 +24,7 @@ export const TopListBackground = styled.div<WidthProps>`
   justify-content: center;
   align-items: center;
   border-radius: 1rem;
+  margin-right: 50px;
   cursor: pointer;
   &:hover {
     background-color: #343434;
