@@ -6,7 +6,14 @@ const Match = () => {
     <>
       <div style={{ display: "flex" }}>
         <Header />
-        <div style={{ display: "flex", flexDirection: "column" }}>
+        <div
+          style={{
+            width: "90.4%",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
           <List />
         </div>
       </div>
