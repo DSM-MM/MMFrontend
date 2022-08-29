@@ -26,7 +26,11 @@ const SearchInput = () => {
           alt="Search Button"
           style={{ paddingLeft: "15px", cursor: "pointer" }}
         />
-        <input type="text" placeholder="검색 용어를 입력해주세요." />
+        <input
+          type="text"
+          placeholder="검색 용어를 입력해주세요."
+          autoComplete="off"
+        />
       </InputWrapper>
     </>
   );
