@@ -17,7 +17,7 @@ export const FieldWrapper = styled.div`
   margin-top: 3vh;
 `;
 
-export const TopListBackground = styled.div<WidthProps>`
+export const TopListBackground = styled.button<WidthProps>`
   width: ${(props) => `${props.width}rem`};
   height: 2rem;
   display: flex;
@@ -25,6 +25,7 @@ export const TopListBackground = styled.div<WidthProps>`
   align-items: center;
   border-radius: 1rem;
   margin-right: 50px;
+  background-color: white;
   cursor: pointer;
   &:hover {
     background-color: #343434;
