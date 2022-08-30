@@ -27,4 +27,4 @@ export const ProgrammingDevelop: string[] = [
 
 export const WebDevelop: string[] = ["Frontend", "Backend", "Design"];
 
-export const AppDevelop: string[] = ["안드로이드", "IOS"];
+export const AppDevelop: string[] = ["Android", "IOS"];
