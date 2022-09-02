@@ -1,16 +1,16 @@
-import { useEffect, useState } from "react";
+import React, { useState } from "react";
 import * as S from "./styles";
 import CardList from "../cardlist";
 import {
-  AppDevelop,
-  WebDevelop,
-  ProgrammingDevelop,
   DevelopList,
+  ProgrammingDevelop,
+  WebDevelop,
+  AppDevelop,
 } from "../../../constance/filterList";
 import NumberList from "./number";
 
 interface PropsType {
-  id?: number;
+  id: number;
   text: string;
   name: string;
 }
@@ -18,17 +18,31 @@ interface PropsType {
 const List = () => {
   const [content, setContent] = useState();
   const selectComponent = {
-    first: <NumberList arr={ProgrammingDevelop} />,
-    second: <NumberList arr={WebDevelop} />,
-    third: <NumberList arr={AppDevelop} />,
+    first: <NumberList list={ProgrammingDevelop} />,
+    second: <NumberList list={WebDevelop} />,
+    third: <NumberList list={AppDevelop} />,
   };
-  const [isSelected, setSelected] = useState<boolean[]>(
-    new Array(3).fill(false)
-  );
 
-  const handleClickButton = (e: any) => {
-    const { name } = e.target;
+  const handleClickButton = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const { name } = e.target as any;
     setContent(name);
+  };
+
+  const getButton = (data: PropsType) => {
+    return (
+      <>
+        <S.TopListBackground
+          key={data.id}
+          name={data.name}
+          onClick={(e) => {
+            handleClickButton(e);
+          }}
+          width={data.id === 1 ? 10 : 3}
+        >
+          <span>{data.text}</span>
+        </S.TopListBackground>
+      </>
+    );
   };
 
   return (
@@ -37,18 +51,16 @@ const List = () => {
         <S.MentoTitle>멘토 목록</S.MentoTitle>
       </div>
       <S.FieldWrapper>
-        {DevelopList.map((data: PropsType) => (
-          <S.TopListBackground
-            onClick={handleClickButton}
-            key={data.id}
-            name={data.name}
-            width={data.id === 1 ? 10 : 3}
-          >
-            <span>{data.text}</span>
-          </S.TopListBackground>
-        ))}
+        {DevelopList.map((data) => getButton(data))}
       </S.FieldWrapper>
-      {content && <div>{selectComponent[content]}</div>}
+      <S.ListWrapper>
+        {content && (
+          <S.SelectedContentWrapper>
+            {selectComponent[content]}
+          </S.SelectedContentWrapper>
+        )}
+      </S.ListWrapper>
+
       <CardList />
     </>
   );

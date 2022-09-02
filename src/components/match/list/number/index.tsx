@@ -1,14 +1,14 @@
 import styled from "@emotion/styled";
 
 interface PropsType {
-  arr: string[];
+  list: string[];
 }
 
-const NumberList: React.FC<PropsType> = ({ arr }: PropsType) => (
+const NumberList: React.FC<PropsType> = ({ list }: PropsType) => (
   <>
-    {arr.map((value: string, index: number) => (
-      <Btn>
-        <span key={index}>{value}</span>
+    {list.map((value: string, index: number) => (
+      <Btn key={index}>
+        <span>{value}</span>
       </Btn>
     ))}
   </>
@@ -16,6 +16,14 @@ const NumberList: React.FC<PropsType> = ({ arr }: PropsType) => (
 
 const Btn = styled.button`
   margin-right: 30px;
+  width: 4rem;
+  height: 40px;
+  border-radius: 1rem;
+  background-color: white;
+  &:hover {
+    background-color: #343434;
+    color: white;
+  }
 `;
 
 export default NumberList;

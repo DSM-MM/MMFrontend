@@ -14,7 +14,7 @@ export const MentoTitle = styled.span`
 export const FieldWrapper = styled.div`
   width: 70%;
   display: flex;
-  margin-top: 3vh;
+  margin: 3vh 0 20px 0;
 `;
 
 export const TopListBackground = styled.button<WidthProps>`
@@ -31,4 +31,20 @@ export const TopListBackground = styled.button<WidthProps>`
     background-color: #343434;
     color: #ffffff;
   }
+  &:active{
+    background-color: #343434;
+  }
+`;
+
+export const SelectedContentWrapper = styled.div`
+  display: flex;
+`;
+
+export const ListWrapper = styled.div`
+  width: 70%;
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 20px;
 `;
