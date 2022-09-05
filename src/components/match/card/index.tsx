@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { Link } from "react-router-dom";
 import { ProfileLogo } from "../../../assets/index";
 
 interface PropsType {
@@ -10,15 +11,17 @@ interface PropsType {
 
 const Card = ({ job, name, introduce, gpa }: PropsType) => (
   <>
-    <CardBackground>
-      <Job>{job}</Job>
-      <Profile>
-        <img src={ProfileLogo} alt="ProfileLogo" />
-      </Profile>
-      <Text>{name}</Text>
-      <Text>"{introduce}"</Text>
-      <GpaText>평점: {gpa}</GpaText>
-    </CardBackground>
+    <Link to={`/mento/${job}/${name}`}>
+      <CardBackground>
+        <Job>{job}</Job>
+        <Profile>
+          <img src={ProfileLogo} alt="ProfileLogo" />
+        </Profile>
+        <Text>{name}</Text>
+        <Text>"{introduce}"</Text>
+        <GpaText>평점: {gpa}</GpaText>
+      </CardBackground>
+    </Link>
   </>
 );
 
