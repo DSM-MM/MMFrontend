@@ -1,6 +1,10 @@
 import { Route, Routes } from "react-router-dom";
+<<<<<<< HEAD
 import Main from "../components/main/index";
 import Test from "../components/test/index";
+=======
+import Test from "../components/test";
+>>>>>>> main
 
 const UserRouter = () => {
   return (
