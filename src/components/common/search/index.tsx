@@ -1,11 +1,12 @@
 import styled from "@emotion/styled";
 import { SearchBtn } from "../../../assets/index";
+import theme from "../../../styles/theme";
 
 const InputWrapper = styled.div`
   width: 15vw;
   height: 36px;
   border-radius: 1rem;
-  border: 1px solid #aaaaaa;
+  border: 1px solid ${theme.color.gray002};
   display: flex;
   align-items: center;
   input {
@@ -13,7 +14,7 @@ const InputWrapper = styled.div`
     padding-left: 20px;
   }
   input::placeholder {
-    color: #aaaaaa;
+    color: ${theme.color.gray002};
   }
 `;
 

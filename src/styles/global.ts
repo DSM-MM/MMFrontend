@@ -1,11 +1,12 @@
 import { css } from "@emotion/react";
+import theme from "./theme";
 
 export const GlobalStyle = css`
   * {
     margin: 0;
     padding: 0;
     box-sizing: 0;
-    font-family: "Noto Sans";
+    font-family: ${theme.font.mainfont};
     outline: none;
     text-decoration: none;
     border: 0;
