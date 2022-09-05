@@ -1,7 +1,11 @@
 import { Route, Routes } from "react-router-dom";
+<<<<<<< HEAD
 import Match from "../components/match/index";
 import Test from "../components/test/index";
 import Introduce from "../components/introduce/index";
+=======
+import Test from "../components/test";
+>>>>>>> main
 
 const UserRouter = () => {
   return (
