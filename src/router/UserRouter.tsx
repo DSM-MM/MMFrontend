@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom";
-import Test from "../components/test/index";
+import Test from "../components/test/";
 
 const UserRouter = () => {
   return (
