@@ -34,7 +34,7 @@ export const FieldDiv = styled.button`
 `;
 
 export const FieldWrapper = styled.div`
-  width: 48%;
+  width: 55%;
   height: 8%;
   display: flex;
   flex-direction: column;
@@ -57,7 +57,7 @@ export const CreateButton = styled.button`
 `;
 
 export const ButtonWrapper = styled.div`
-  width: 48%;
+  width: 50%;
   display: flex;
   justify-content: flex-end;
   margin-bottom: 30px;
