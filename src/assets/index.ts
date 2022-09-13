@@ -4,3 +4,5 @@ export { default as ProfileLogo } from "./image/profile.svg";
 export { default as MentoMatch } from "./image/mento_match.svg";
 export { default as FindProject } from "./image/find_project.svg";
 export { default as Messenger } from "./image/messenger.svg";
+export { default as PlusImg } from "./image/plus.svg";
+export { default as Folder } from "./image/folder.svg";
