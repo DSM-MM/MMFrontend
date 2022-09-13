@@ -1,9 +1,10 @@
 import styled from "@emotion/styled";
+import theme from "../../../styles/theme";
 
 export const FooterContainer = styled.div`
   width: 100%;
   height: 300px;
-  background-color: #343434;
+  background-color: ${theme.color.maincolor};
   display: flex;
   flex-direction: column;
 `;
