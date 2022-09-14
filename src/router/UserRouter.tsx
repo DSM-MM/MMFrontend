@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import FindProject from "../components/find";
-import CreateProject from "../components/find/create";
+import CreateProject from "../components/create";
 import Test from "../components/test/";
 
 const UserRouter = () => {
