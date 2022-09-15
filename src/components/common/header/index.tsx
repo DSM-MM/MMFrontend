@@ -6,7 +6,7 @@ import {
   Messenger,
   FindProject,
   MMMainLogo,
-} from "../../../assets/index";
+} from "../../../assets";
 
 const Header = () => {
   return (
