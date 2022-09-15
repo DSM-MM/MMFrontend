@@ -5,3 +5,4 @@ export { default as MentoMatch } from "./image/mento_match.svg";
 export { default as FindProject } from "./image/find_project.svg";
 export { default as Messenger } from "./image/messenger.svg";
 export { default as SearchBtn } from "./image/search.svg";
+export { default as Page404 } from "./image/image404.jpg";
