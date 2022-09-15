@@ -9,12 +9,9 @@ import NotFound from "../pages/404";
 const UserRouter = () => {
   return (
     <Routes>
-<<<<<<< HEAD
       <Route path="/" element={<Test />} />
-=======
       <Route path="/test" element={<Test />} />
       <Route path="/find" element={<FindProject />} />
->>>>>>> main
       <Route path="/mento" element={<Match />} />
       <Route path="/mento/:job/:name" element={<Introduce />} />
       <Route path="/main" element={<Main />} />
