@@ -1,7 +1,8 @@
 import * as S from "./styles";
 import Header from "../common/header";
 import { PlusImg, Folder } from "../../assets";
-import { useState, useRef } from "react";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const CreateProject = () => {
   const [tag, setTag] = useState<string | "">("");
@@ -74,6 +75,17 @@ const CreateProject = () => {
               </S.CoreWrapper>
             </div>
           </S.InputWrapper>
+          <S.ButtonWrapper>
+            <Link to="/find">
+              <S.Button>만들기</S.Button>
+            </Link>
+            <Link
+              onClick={() => alert("중간에 나가시면 내용이 다 날라갑니다.")}
+              to="/find"
+            >
+              <S.Button>취소</S.Button>
+            </Link>
+          </S.ButtonWrapper>
         </S.InnerWrapper>
       </S.Wrapper>
     </>
