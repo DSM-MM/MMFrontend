@@ -1,7 +1,7 @@
 import * as S from "./styles";
 import Header from "../common/header";
 import { PlusImg, Folder } from "../../assets";
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const CreateProject = () => {
@@ -32,7 +32,13 @@ const CreateProject = () => {
             <span>추가할 태그</span>
             <div>
               <form onSubmit={onSubmit}>
-                <div style={{ display: "flex", alignItems: "center" }}>
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    marginBottom: "10px",
+                  }}
+                >
                   <img
                     src={PlusImg}
                     alt="Plus Img"
@@ -50,7 +56,14 @@ const CreateProject = () => {
                 <S.TagWrapper>
                   {hash.length !== 0 ? (
                     hash.map((e: string, i: number) => (
-                      <S.Tag key={i}>{e}</S.Tag>
+                      <S.Tag
+                        key={i}
+                        onClick={() =>
+                          setHash(hash.filter((ele: string) => ele !== e))
+                        }
+                      >
+                        {e}
+                      </S.Tag>
                     ))
                   ) : (
                     <span style={{ color: "#919191", cursor: "default" }}>
