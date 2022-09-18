@@ -14,4 +14,7 @@ export const GlobalStyle = css`
     width: 100%;
     height: 100%;
   }
+  button{
+    cursor: pointer;
+  }
 `;
