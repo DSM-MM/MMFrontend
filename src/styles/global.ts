@@ -5,7 +5,7 @@ export const GlobalStyle = css`
     margin: 0;
     padding: 0;
     box-sizing: 0;
-    font-family: "Noto Sans";
+    font-family: 'Noto Sans KR', sans-serif;
     outline: none;
     text-decoration: none;
     border: none;
