@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import FindProject from "../components/find";
-import CreateProject from "../components/create";
+import Profile from "../components/profile";
+//import CreateProject from "../components/create";
 import Test from "../components/test/";
 
 const UserRouter = () => {
@@ -8,7 +9,7 @@ const UserRouter = () => {
     <Routes>
       <Route path="/test" element={<Test />} />
       <Route path="/find" element={<FindProject />} />
-      <Route path="/find/create" element={<CreateProject />} />
+      <Route path="/profile" element={<Profile/>} />
     </Routes>
   );
 };
