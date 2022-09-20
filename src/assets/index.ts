@@ -8,8 +8,4 @@ export { default as SearchBtn } from "./image/search.svg";
 export { default as Page404 } from "./image/image404.jpg";
 export { default as PlusImg } from "./image/plus.svg";
 export { default as Folder } from "./image/folder.svg";
-<<<<<<< HEAD
-=======
-export { default as SearchBtn } from "./image/search.svg";
 export { default as Pencil } from "./image/pencil.svg";
->>>>>>> changeSetting
