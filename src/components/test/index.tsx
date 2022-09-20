@@ -1,7 +1,5 @@
-import React from "react";
-
 const Test = () => {
-  return <span>Test</span>;
+  return <span>Test Components</span>;
 };
 
 export default Test;

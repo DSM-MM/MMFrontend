@@ -1,16 +1,28 @@
 import { css } from "@emotion/react";
+import theme from "./theme";
 
 export const GlobalStyle = css`
   * {
     margin: 0;
     padding: 0;
     box-sizing: 0;
+<<<<<<< HEAD
+    font-family: ${theme.font.mainfont};
+=======
     font-family: 'Noto Sans KR', sans-serif;
+>>>>>>> changeSetting
     outline: none;
     text-decoration: none;
-    border: none;
+    border: 0;
+    outline: unset;
   }
-  body{
+  a {
+    text-decoration: none;
+  }
+  button {
+    cursor: pointer;
+  }
+  body {
     width: 100%;
     height: 100%;
   }
