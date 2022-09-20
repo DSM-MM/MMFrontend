@@ -3,21 +3,23 @@ import theme from "../../../styles/theme";
 
 export const HeaderWrapper = styled.div`
   width: 9.6%;
-<<<<<<< HEAD
   height: 100vh;
   background-color: ${theme.color.maincolor};
-=======
   height: 100%;
   position: fixed;
   z-index: 999;
   background-color: #343434;
->>>>>>> changeSetting
   display: flex;
   flex-direction: column;
   align-items: center;
   .mainLogo {
-    width: 50%;
-    height: 50%;
+    width: 70%;
+    height: 70%;
+  }
+  .main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 `;
 

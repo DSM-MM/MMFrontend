@@ -26,7 +26,9 @@ const Header = () => {
             <img src={FindProject} alt="Find" />
           </Link>
         </S.MenuWrapper>
-        <img className="mainLogo" src={MMMainLogo} alt="MM Main Logo" />
+        <Link className="main" to="/main">
+          <img className="mainLogo" src={MMMainLogo} alt="MM Main Logo" />
+        </Link>
       </S.HeaderWrapper>
     </>
   );
