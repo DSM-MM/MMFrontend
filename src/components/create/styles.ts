@@ -98,3 +98,24 @@ export const CoreWrapper = styled.div`
     resize: none;
   }
 `;
+
+export const ButtonWrapper = styled.div`
+  width: 60%;
+  margin-top: 5%;
+  display: flex;
+  justify-content: space-around;
+`;
+
+export const Button = styled.button`
+  width: max-content;
+  padding: 10px 50px 10px 50px;
+  background-color: ${theme.color.maincolor};
+  color: ${theme.color.white000};
+  border-radius: 10px;
+  cursor: pointer;
+  &:hover {
+    color: ${theme.color.black000};
+    background-color: ${theme.color.white000};
+    border: 1.5px solid ${theme.color.black000};
+  }
+`;
