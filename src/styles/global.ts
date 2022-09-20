@@ -6,11 +6,8 @@ export const GlobalStyle = css`
     margin: 0;
     padding: 0;
     box-sizing: 0;
-<<<<<<< HEAD
     font-family: ${theme.font.mainfont};
-=======
-    font-family: 'Noto Sans KR', sans-serif;
->>>>>>> changeSetting
+    font-family: "Noto Sans KR", sans-serif;
     outline: none;
     text-decoration: none;
     border: 0;
@@ -26,7 +23,7 @@ export const GlobalStyle = css`
     width: 100%;
     height: 100%;
   }
-  button{
+  button {
     cursor: pointer;
   }
 `;
