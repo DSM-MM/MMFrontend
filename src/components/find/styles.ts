@@ -14,7 +14,7 @@ export const Wrapper = styled.div`
 `;
 
 export const ListWrapper = styled.div`
-  height: 700px;
+  height: 660px;
   display: flex;
   flex-direction: column;
   overflow-y: scroll;

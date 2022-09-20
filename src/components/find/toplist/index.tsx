@@ -1,5 +1,6 @@
 import * as S from "./styles";
 import { Time, Field } from "../../../constance/field";
+import { Link } from "react-router-dom";
 
 const TopList = () => {
   return (
@@ -20,7 +21,9 @@ const TopList = () => {
         </S.Flex>
       </S.FieldWrapper>
       <S.ButtonWrapper>
-        <S.CreateButton>프로젝트 생성</S.CreateButton>
+        <Link to="/find/create">
+          <S.CreateButton>프로젝트 생성</S.CreateButton>
+        </Link>
       </S.ButtonWrapper>
     </>
   );
