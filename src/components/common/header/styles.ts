@@ -2,7 +2,9 @@ import styled from "@emotion/styled";
 
 export const HeaderWrapper = styled.div`
   width: 9.6%;
-  height: 100vh;
+  height: 100%;
+  position: fixed;
+  z-index: 999;
   background-color: #343434;
   display: flex;
   flex-direction: column;
