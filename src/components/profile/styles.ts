@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-import exp from "constants";
 
 export const Body = styled.div`
     display: flex;
@@ -11,6 +10,7 @@ export const Wrapper = styled.div`
     width: 100%;
     height: 100%;
     padding-bottom: 10%;
+    margin-left: 7.6%;
 `
 
 export const Background = styled.div`
@@ -91,6 +91,33 @@ export const Name = styled.h2`
     margin-top: 13px;
 `
 
+//추후 수정 예정
+export const EditIntroduce = styled.textarea`
+    width: 100%;
+    margin-top: 20px;
+    font-size: 14px;
+    padding: 10px;
+    border-radius: 10px;
+    resize: vertical;
+    min-height: 90px;
+    background-color: #F8F8F8;
+    border: 1px solid #D9D9D9;
+    :focus {
+        background-color: white;
+    }
+    -webkit-scrollbar {
+        width: 10px;
+        background-color: rgba(0, 0, 0, 0);
+    }
+    -webkit-scrollbar-thumb {
+        background-color: #eee;
+        border-radius: 5px;
+    }
+    -webkit-scrollbar-track {
+        background-color: rgba(0, 0, 0, 0);
+    }
+`
+
 export const Introduce = styled.div`
     margin-top: 20px;
     font-size: 14px;
@@ -113,6 +140,14 @@ export const InfoTitle = styled.p`
     width: 120px;
     font-weight: 500;
     font-size: 16px;
+`
+export const InfoContentInput = styled.input`
+    height: 15px;
+    padding-left: 14px;
+    padding-bottom: 5px;
+    font-size: 14px;
+    max-width: 288px;
+    border-bottom: 2px solid #000000;
 `
 
 export const InfoContent = styled.p`

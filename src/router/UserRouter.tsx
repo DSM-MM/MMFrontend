@@ -8,6 +8,7 @@ import NotFound from "../pages/404";
 import CreateProject from "../components/create";
 import Profile from "../components/profile";
 import ViewProject from "../components/view";
+import EditProfile from "../components/profile/edit";
 
 const UserRouter = () => {
   return (
@@ -18,10 +19,11 @@ const UserRouter = () => {
       <Route path="/mento" element={<Match />} />
       <Route path="/mento/:job/:name" element={<Introduce />} />
       <Route path="/main" element={<Main />} />
-      <Route path="/*" element={<NotFound />} />
       <Route path="/profile" element={<Profile/>} />
+      <Route path="/profile/edit" element={<EditProfile />}/>
       <Route path="/find/create" element={<CreateProject />} />
       <Route path="/find/:id" element={<ViewProject />} />
+      <Route path="/*" element={<NotFound />} />
     </Routes>
   );
 };

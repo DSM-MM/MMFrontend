@@ -1,9 +1,10 @@
-import Header from "../common/header"
-import * as S from "./styles"
-import Pencil from "./Pencil"
+import Header from "../../common/header"
+import * as S from "../styles"
+import Pencil from "../Pencil"
 
-const Profile = () => {
-    return(
+const editProfile = () => {
+
+    return (
         <S.Body>
             <Header />
             <S.Wrapper>
@@ -14,28 +15,28 @@ const Profile = () => {
                     <S.ProfilePictureDiv>
                         <S.ProfilePicture src={"https://www.notion.so/images/page-cover/gradients_3.png"}/>
                         <S.ProfileEditButton>
-                            <Pencil/>프로필 편집
+                            <Pencil/>프로필 완료
                         </S.ProfileEditButton>
                     </S.ProfilePictureDiv>
                     <S.Content>
                         <S.Name>홍 길 동</S.Name>
-                        <S.Introduce>DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 UP 파팅</S.Introduce>
+                        <S.EditIntroduce>DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 UP 파팅</S.EditIntroduce>
                         <S.InfoDiv>
                             <S.Info>
                                 <S.InfoTitle>Email</S.InfoTitle>
-                                <S.InfoContent>Test123@gmail.com</S.InfoContent>
+                                <S.InfoContentInput/>
                             </S.Info>
                             <S.Info>
                                 <S.InfoTitle>비밀번호</S.InfoTitle>
-                                <S.InfoContent></S.InfoContent>
+                                <S.InfoContentInput/>
                             </S.Info>
                             <S.Info>
                                 <S.InfoTitle>평점</S.InfoTitle>
-                                <S.InfoContent>1.33</S.InfoContent>
+                                <S.InfoContentInput/>
                             </S.Info>
                             <S.Info>
                                 <S.InfoTitle>직군</S.InfoTitle>
-                                <S.InfoContent>Frontend Developer</S.InfoContent>
+                                <S.InfoContentInput/>
                             </S.Info>
                             <S.Info>
                                 <S.InfoTitle>사용언어</S.InfoTitle>
@@ -66,4 +67,4 @@ const Profile = () => {
     )
 }
 
-export default Profile
+export default editProfile
