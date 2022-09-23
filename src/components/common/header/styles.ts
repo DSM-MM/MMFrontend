@@ -1,11 +1,12 @@
 import styled from "@emotion/styled";
+import theme from "../../../styles/theme";
 
 export const HeaderWrapper = styled.div`
   width: 9.6%;
+  background-color: ${theme.color.maincolor};
   height: 100%;
   position: fixed;
   z-index: 999;
-  background-color: #343434;
   display: flex;
   flex-direction: column;
   align-items: center;

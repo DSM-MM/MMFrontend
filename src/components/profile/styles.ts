@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-import exp from "constants";
 
 export const Body = styled.div`
     display: flex;
@@ -11,6 +10,7 @@ export const Wrapper = styled.div`
     width: 100%;
     height: 100%;
     padding-bottom: 10%;
+    margin-left: 7.6%;
 `
 
 export const Background = styled.div`
@@ -80,15 +80,46 @@ export const Content = styled.div`
 `
 
 export const NameDiv = styled.div`
+    margin-top: 13px;
     display: flex;
     align-items: center;
+    img {
+        width: 15px;
+        height: 15px;
+    }
 `
 
 export const Name = styled.h2`
     font-size: 34px;
     font-weight: 600;
     width: 126px;
-    margin-top: 13px;
+`
+
+//추후 수정 예정
+export const EditIntroduce = styled.textarea`
+    width: 100%;
+    margin-top: 20px;
+    font-size: 14px;
+    padding: 10px;
+    border-radius: 10px;
+    resize: vertical;
+    min-height: 90px;
+    background-color: #F8F8F8;
+    border: 1px solid #D9D9D9;
+    :focus {
+        background-color: white;
+    }
+    -webkit-scrollbar {
+        width: 10px;
+        background-color: rgba(0, 0, 0, 0);
+    }
+    -webkit-scrollbar-thumb {
+        background-color: #eee;
+        border-radius: 5px;
+    }
+    -webkit-scrollbar-track {
+        background-color: rgba(0, 0, 0, 0);
+    }
 `
 
 export const Introduce = styled.div`
@@ -113,6 +144,27 @@ export const InfoTitle = styled.p`
     width: 120px;
     font-weight: 500;
     font-size: 16px;
+`
+export const InfoContentInput = styled.input`
+    height: 15px;
+    padding-left: 14px;
+    padding-bottom: 5px;
+    font-size: 14px;
+    max-width: 288px;
+    border-bottom: 2px solid #000000;
+`
+
+export const PasswordDiv = styled.div`
+    height: 15px;
+    width: 202px;
+    font-size: 7px;
+    letter-spacing: 7px;
+    padding-top: 7px;
+    display: flex;
+    justify-content: space-between;
+`
+
+export const EditPassword = styled.svg`
 `
 
 export const InfoContent = styled.p`
@@ -154,7 +206,7 @@ export const Project = styled.div`
 export const ProjectTitle = styled.h3`
     padding-top: 26px;
     padding-left: 33px;
-    font-size: 24px;
+    font-size: 23px;
     font-weight: 400;
 `
 
