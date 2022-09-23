@@ -1,6 +1,7 @@
 import Header from "../common/header"
 import * as S from "./styles"
 import Pencil from "./Pencil"
+import { GithubLogo } from "../../assets"
 
 const Profile = () => {
     return(
@@ -18,7 +19,10 @@ const Profile = () => {
                         </S.ProfileEditButton>
                     </S.ProfilePictureDiv>
                     <S.Content>
-                        <S.Name>홍 길 동</S.Name>
+                        <S.NameDiv>
+                            <S.Name>홍 길 동</S.Name>
+                            <img src={GithubLogo}/>
+                        </S.NameDiv>
                         <S.Introduce>DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 UP 파팅</S.Introduce>
                         <S.InfoDiv>
                             <S.Info>
@@ -27,7 +31,9 @@ const Profile = () => {
                             </S.Info>
                             <S.Info>
                                 <S.InfoTitle>비밀번호</S.InfoTitle>
-                                <S.InfoContent></S.InfoContent>
+                                <S.PasswordDiv>
+                                    <span>●●●●●●●</span>
+                                </S.PasswordDiv>
                             </S.Info>
                             <S.Info>
                                 <S.InfoTitle>평점</S.InfoTitle>

@@ -80,15 +80,19 @@ export const Content = styled.div`
 `
 
 export const NameDiv = styled.div`
+    margin-top: 13px;
     display: flex;
     align-items: center;
+    img {
+        width: 15px;
+        height: 15px;
+    }
 `
 
 export const Name = styled.h2`
     font-size: 34px;
     font-weight: 600;
     width: 126px;
-    margin-top: 13px;
 `
 
 //추후 수정 예정
@@ -150,6 +154,19 @@ export const InfoContentInput = styled.input`
     border-bottom: 2px solid #000000;
 `
 
+export const PasswordDiv = styled.div`
+    height: 15px;
+    width: 202px;
+    font-size: 7px;
+    letter-spacing: 7px;
+    padding-top: 7px;
+    display: flex;
+    justify-content: space-between;
+`
+
+export const EditPassword = styled.svg`
+`
+
 export const InfoContent = styled.p`
     font-size: 14px;
     max-width: 288px;
@@ -189,7 +206,7 @@ export const Project = styled.div`
 export const ProjectTitle = styled.h3`
     padding-top: 26px;
     padding-left: 33px;
-    font-size: 24px;
+    font-size: 23px;
     font-weight: 400;
 `
 
