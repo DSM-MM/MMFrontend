@@ -11,7 +11,7 @@ const color = {
 };
 
 const font = {
-  mainfont: "Noto Sans",
+  mainfont: "Noto Sans KR",
 };
 
 const theme = {

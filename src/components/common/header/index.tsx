@@ -13,18 +13,18 @@ const Header = () => {
     <>
       <S.HeaderWrapper>
         <S.MenuWrapper>
-          <Link className="profile" to="/profile">
-            <img src={ProfileLogo} alt="Profile Logo" />
-          </Link>
-          <Link className="menu" to="/mento">
-            <img src={MentoMatch} alt="Mento Match Logo" />
-          </Link>
-          <Link className="menu" to="/message">
-            <img src={Messenger} alt="Messenger" />
-          </Link>
-          <Link className="menu" to="/find">
-            <img src={FindProject} alt="Find" />
-          </Link>
+          <S.Menu to="/profile">
+            <img className="profile" src={ProfileLogo} alt="Profile Logo" />
+          </S.Menu>
+          <S.Menu to="/mento">
+            <img className="menu" src={MentoMatch} alt="Mento Match Logo" />
+          </S.Menu>
+          <S.Menu to="/message">
+            <img className="menu" src={Messenger} alt="Messenger" />
+          </S.Menu>
+          <S.Menu to="/find">
+            <img className="menu" src={FindProject} alt="Find" />
+          </S.Menu>
         </S.MenuWrapper>
         <img className="mainLogo" src={MMMainLogo} alt="MM Main Logo" />
       </S.HeaderWrapper>

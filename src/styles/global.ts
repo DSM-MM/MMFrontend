@@ -6,11 +6,7 @@ export const GlobalStyle = css`
     margin: 0;
     padding: 0;
     box-sizing: 0;
-<<<<<<< HEAD
     font-family: ${theme.font.mainfont};
-=======
-    font-family: 'Noto Sans KR', sans-serif;
->>>>>>> changeSetting
     outline: none;
     text-decoration: none;
     border: 0;

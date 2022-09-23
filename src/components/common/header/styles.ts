@@ -1,8 +1,9 @@
 import styled from "@emotion/styled";
+import { Link } from "react-router-dom";
 import theme from "../../../styles/theme";
 
 export const HeaderWrapper = styled.div`
-  width: 9.6%;
+  width: 7.6%;
   background-color: ${theme.color.maincolor};
   height: 100%;
   position: fixed;
@@ -23,20 +24,23 @@ export const MenuWrapper = styled.div`
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  .profile {
-    width: 25%;
-    height: 25%;
+`;
+
+export const Menu = styled(Link)`
+  width: 22%;
+  height: 22%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  img {
     cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  }
+  .profile {
+    width: 100%;
+    height: 100%;
   }
   .menu {
-    width: 15%;
-    height: 15%;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: 90%;
+    height: 90%;
   }
 `;
