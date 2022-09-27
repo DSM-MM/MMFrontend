@@ -1,5 +1,6 @@
 import Header from "../common/header";
 import * as S from "./styles";
+import { ProfileLogo } from "../../assets";
 
 const Pencil = () => {
   return (
@@ -31,10 +32,7 @@ const Profile = () => {
         </S.Background>
         <S.Profile>
           <S.ProfilePictureDiv>
-            <S.ProfilePicture
-              src={"https://www.notion.so/images/page-cover/gradients_3.png"}
-              alt="Profile"
-            />
+            <S.ProfilePicture src={ProfileLogo} alt="Profile" />
             <S.ProfileEditButton>
               <Pencil />
               프로필 편집
