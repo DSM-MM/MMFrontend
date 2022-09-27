@@ -7,6 +7,7 @@ export const Flex = styled.div`
 export const Wrapper = styled.div`
   width: 100%;
   height: 100%;
+  margin-left: 7.6%;
   display: flex;
   flex-direction: column;
   align-items: center;

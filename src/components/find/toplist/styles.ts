@@ -34,12 +34,12 @@ export const FieldDiv = styled.button`
 `;
 
 export const FieldWrapper = styled.div`
-  width: 55%;
+  width: 900px;
   height: 8%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  margin-top: 5%;
+  margin-top: 100px;
 `;
 
 export const CreateButton = styled.button`
@@ -57,7 +57,7 @@ export const CreateButton = styled.button`
 `;
 
 export const ButtonWrapper = styled.div`
-  width: 50%;
+  width: 900px;
   display: flex;
   justify-content: flex-end;
   margin-bottom: 30px;

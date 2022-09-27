@@ -12,7 +12,7 @@ export const MentoTitle = styled.span`
 `;
 
 export const FieldWrapper = styled.div`
-  width: 70%;
+  width: 890px;
   display: flex;
   margin: 3vh 0 20px 0;
 `;
@@ -41,7 +41,7 @@ export const SelectedContentWrapper = styled.div`
 `;
 
 export const ListWrapper = styled.div`
-  width: 70%;
+  width: 890px;
   height: 10vh;
   display: flex;
   align-items: center;

@@ -47,7 +47,7 @@ const List = () => {
 
   return (
     <>
-      <div style={{ width: "70%", paddingTop: "5vh" }}>
+      <div style={{ width: "width: 890px", paddingTop: "80px" }}>
         <S.MentoTitle>멘토 목록</S.MentoTitle>
       </div>
       <S.FieldWrapper>

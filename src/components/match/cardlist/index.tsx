@@ -16,6 +16,7 @@ const CardList = () => {
         {CardInformation?.map((v: PropsType, i: number) => (
           <Card
             key={i}
+            index={i}
             job={v.job}
             name={v.name}
             introduce={v.introduce}
@@ -28,7 +29,7 @@ const CardList = () => {
 };
 
 const CardListWrapper = styled.div`
-  width: 80%;
+  width: 890px;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;

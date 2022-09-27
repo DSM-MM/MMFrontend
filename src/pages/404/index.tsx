@@ -2,8 +2,8 @@ import { Page404 } from "../../assets";
 import styled from "@emotion/styled";
 
 const Image = styled.img`
-  width: 50vw;
-  height: 50vh;
+  width: 600px;
+  height: 500px;
 `;
 
 const Wrapper = styled.div`

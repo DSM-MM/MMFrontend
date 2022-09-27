@@ -1,22 +1,16 @@
 import Header from "../common/header/index";
 import List from "./list/index";
+import * as S from "./styles";
 
 const Match = () => {
   return (
     <>
-      <div style={{ display: "flex" }}>
+      <S.Body>
         <Header />
-        <div
-          style={{
-            width: "90.4%",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-          }}
-        >
+        <S.Wrapper>
           <List />
-        </div>
-      </div>
+        </S.Wrapper>
+      </S.Body>
     </>
   );
 };
