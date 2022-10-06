@@ -14,6 +14,17 @@ const CreateProject = () => {
     if (compare.test(tag) || tag === "") {
       alert("공백으로 시작하거나 아무것도 입력 안하셨습니다.");
     } else {
+      let left: number = 0;
+      let right: number = hash.length;
+      while (left <= right) {
+        let mid: number = Math.floor((left + right) / 2);
+        if (hash[mid] === tag) {
+          alert("중복 태그가 존재합니다. 다시 시도해주세요 !");
+          return;
+        }
+        hash[mid] > tag ? (right = mid - 1) : (left = mid + 1);
+        console.log(hash);
+      }
       setHash([...hash, tag]);
       setTag("");
     }
