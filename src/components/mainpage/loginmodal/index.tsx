@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { MMMainLogo } from "../../../assets";
-import * as S from "./styles";
 import { Job } from "../../../constance/signup";
+import * as S from "./styles";
 
 interface PropsType {
   setModal: (modal: boolean) => void;
@@ -19,10 +19,7 @@ const LoginModal = ({ setModal }: PropsType) => {
     id: "",
     password: "",
   });
-  let cnt = 0;
-  const [check, setCheck] = useState<boolean[]>(
-    new Array(Job.length).fill(false)
-  );
+  const [radio, setRadio] = useState<string>("Frontend");
   const [signUp, setSignUp] = useState<boolean>(true);
   const [signUpInformation, setSignUpInformation] =
     useState<SignUpInformationProps>({
@@ -80,66 +77,82 @@ const LoginModal = ({ setModal }: PropsType) => {
               <span onClick={() => setSignUp(true)}>&lt;</span>
             </S.Wrapper>
             <S.SignUpTitle>회원가입</S.SignUpTitle>
-            <S.InputWrapper>
-              <input
-                autoComplete="off"
-                type="name"
-                value={signUpInformation.name}
-                placeholder="이름을 입력하세요."
-                onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                  setSignUpInformation((prevState) => ({
-                    ...prevState,
-                    name: e.target.value,
-                  }))
-                }
-              />
-            </S.InputWrapper>
-            <S.InputWrapper>
-              <input
-                autoComplete="off"
-                type="email"
-                value={signUpInformation.email}
-                placeholder="이메일을 입력하세요."
-                onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                  setSignUpInformation((prevState) => ({
-                    ...prevState,
-                    email: e.target.value,
-                  }))
-                }
-              />
-            </S.InputWrapper>
-            <S.InputWrapper>
-              <input
-                autoComplete="off"
-                type="password"
-                value={signUpInformation.password}
-                placeholder="비밀번호를 입력하세요."
-                onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                  setSignUpInformation((prevState) => ({
-                    ...prevState,
-                    password: e.target.value,
-                  }))
-                }
-              />
-            </S.InputWrapper>
-            <S.InputWrapper>
-              <input
-                autoComplete="off"
-                type="text"
-                value={signUpInformation.oneLineIntroduce}
-                placeholder="한줄 소개를 입력하세요."
-                onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                  setSignUpInformation((prevState) => ({
-                    ...prevState,
-                    oneLineIntroduce: e.target.value,
-                  }))
-                }
-              />
-            </S.InputWrapper>
+            <S.InputFlexWrapper>
+              <S.InputWrapper>
+                <input
+                  autoComplete="off"
+                  type="name"
+                  value={signUpInformation.name}
+                  placeholder="이름을 입력하세요."
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                    setSignUpInformation((prevState) => ({
+                      ...prevState,
+                      name: e.target.value,
+                    }))
+                  }
+                />
+              </S.InputWrapper>
+              <S.InputWrapper>
+                <input
+                  autoComplete="off"
+                  type="email"
+                  value={signUpInformation.email}
+                  placeholder="이메일을 입력하세요."
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                    setSignUpInformation((prevState) => ({
+                      ...prevState,
+                      email: e.target.value,
+                    }))
+                  }
+                />
+              </S.InputWrapper>
+              <S.InputWrapper>
+                <input
+                  autoComplete="off"
+                  type="password"
+                  value={signUpInformation.password}
+                  placeholder="비밀번호를 입력하세요."
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                    setSignUpInformation((prevState) => ({
+                      ...prevState,
+                      password: e.target.value,
+                    }))
+                  }
+                />
+              </S.InputWrapper>
+              <S.InputWrapper>
+                <input
+                  autoComplete="off"
+                  type="text"
+                  value={signUpInformation.oneLineIntroduce}
+                  placeholder="한줄 소개를 입력하세요."
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                    setSignUpInformation((prevState) => ({
+                      ...prevState,
+                      oneLineIntroduce: e.target.value,
+                    }))
+                  }
+                />
+              </S.InputWrapper>
+            </S.InputFlexWrapper>
             <S.JobWrapper>
-              <S.CheckBox type="radio" id="check" />
-              <label htmlFor="check" />
+              {Job.map((v) => (
+                <S.JobCheckWrapper key={v.id}>
+                  <S.CheckBox
+                    checked={radio === v.job}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                      const { name } = e.target;
+                      setRadio(name);
+                    }}
+                    type="radio"
+                    name={v.job}
+                    id="check"
+                  />
+                  <label htmlFor="check">{v.job}</label>
+                </S.JobCheckWrapper>
+              ))}
             </S.JobWrapper>
+            <S.SignUpButton>회원가입</S.SignUpButton>
           </>
         )}
       </S.ModalItem>

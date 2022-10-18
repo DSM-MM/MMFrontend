@@ -77,6 +77,13 @@ export const Button = styled.button`
   color: ${theme.color.white000};
 `;
 
+export const InputFlexWrapper = styled.div`
+  height: 30vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+`;
+
 export const SignUpTitle = styled.span`
   font-weight: 600;
   font-size: 21px;
@@ -84,7 +91,7 @@ export const SignUpTitle = styled.span`
 `;
 
 export const JobWrapper = styled.div`
-  width: 100%;
+  width: 60%;
   display: flex;
   flex-wrap: wrap;
 `;
@@ -104,9 +111,30 @@ export const CheckBox = styled.input`
   background-color: #d9d9d9;
   border-radius: 50px;
   cursor: pointer;
+  margin-right: 5px;
   label {
     font-weight: 400;
     font-size: 17px;
     line-height: 15px;
   }
+`;
+
+export const JobCheckWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  margin: 0 15px 15px 0;
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 15px;
+`;
+
+export const SignUpButton = styled.button`
+  width: 200px;
+  height: 40px;
+  background: ${theme.color.maincolor};
+  color: ${theme.color.white000};
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
