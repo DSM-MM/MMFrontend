@@ -87,20 +87,12 @@ export const JobWrapper = styled.div`
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  input[id="check"] {
-    display: none;
-  }
   input[id="check"] + label {
     display: inline-block;
     width: 15px;
     height: 15px;
-    border: 1px solid ${theme.color.maincolor};
     border-radius: 50px;
     cursor: pointer;
-  }
-  input[id="check"]:checked + label {
-    background-color: ${theme.color.maincolor};
-    
   }
 `;
 
@@ -112,7 +104,16 @@ export const Wrapper = styled.div`
 `;
 
 export const CheckBox = styled.input`
-  font-weight: 400;
-  font-size: 11px;
-  line-height: 15px;
+  accent-color: ${theme.color.maincolor};
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  background-color: #D9D9D9;
+  border-radius: 50px;
+  cursor: pointer;
+  label{
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 15px;
+  }
 `;

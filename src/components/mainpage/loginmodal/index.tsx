@@ -136,7 +136,7 @@ const LoginModal = ({ setModal }: PropsType) => {
               />
             </S.InputWrapper>
             <S.JobWrapper>
-              <S.CheckBox type="checkbox" id="check" />
+              <S.CheckBox type="radio" id="check" />
               <label htmlFor="check" />
             </S.JobWrapper>
           </>
