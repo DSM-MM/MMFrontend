@@ -101,10 +101,10 @@ export const CheckBox = styled.input`
   display: inline-block;
   width: 15px;
   height: 15px;
-  background-color: #D9D9D9;
+  background-color: #d9d9d9;
   border-radius: 50px;
   cursor: pointer;
-  label{
+  label {
     font-weight: 400;
     font-size: 17px;
     line-height: 15px;

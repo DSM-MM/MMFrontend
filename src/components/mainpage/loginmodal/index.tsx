@@ -19,6 +19,7 @@ const LoginModal = ({ setModal }: PropsType) => {
     id: "",
     password: "",
   });
+  let cnt = 0;
   const [check, setCheck] = useState<boolean[]>(
     new Array(Job.length).fill(false)
   );
@@ -46,10 +47,10 @@ const LoginModal = ({ setModal }: PropsType) => {
             <S.InformationBlock>
               <S.InputWrapper>
                 <input
-                  name="id"
-                  type="text"
+                  name="email"
+                  type="email"
                   autoComplete="off"
-                  placeholder="아이디를 입력해주세요."
+                  placeholder="이메일을 입력해주세요."
                   value={values.id}
                   onChange={onChange}
                 />
