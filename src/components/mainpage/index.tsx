@@ -2,7 +2,6 @@ import * as S from "./styles";
 import {
   LeftShape,
   RightShape,
-  RightArrow,
   BottomArrow,
   TopArrow,
   Menu1,
