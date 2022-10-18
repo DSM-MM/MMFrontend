@@ -87,13 +87,6 @@ export const JobWrapper = styled.div`
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  input[id="check"] + label {
-    display: inline-block;
-    width: 15px;
-    height: 15px;
-    border-radius: 50px;
-    cursor: pointer;
-  }
 `;
 
 export const Wrapper = styled.div`
