@@ -8,11 +8,12 @@ import NotFound from "../pages/404";
 import CreateProject from "../components/create";
 import Profile from "../components/profile";
 import ViewProject from "../components/view";
+import MainPage from "../components/mainpage";
 
 const UserRouter = () => {
   return (
     <Routes>
-      <Route path="/" element={<Test />} />
+      <Route path="/" element={<MainPage />} />
       <Route path="/test" element={<Test />} />
       <Route path="/find" element={<FindProject />} />
       <Route path="/mento" element={<Match />} />
