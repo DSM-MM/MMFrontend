@@ -1,0 +1,118 @@
+import styled from "@emotion/styled";
+import theme from "../../../styles/theme";
+
+export const ModalBackground = styled.div`
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  display: grid;
+  place-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+`;
+
+export const ModalItem = styled.form`
+  width: 550px;
+  height: 800px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background-color: ${theme.color.white002};
+  z-index: 3;
+  border-radius: 20px;
+`;
+
+export const MainLogo = styled.img`
+  width: 154.76px;
+`;
+
+export const InformationBlock = styled.div`
+  height: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+`;
+
+export const InputWrapper = styled.div`
+  width: 310px;
+  height: 50px;
+  background: #f3f3f3;
+  border: 1px solid #d9d9d9;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  & > input {
+    width: 310px;
+    background-color: transparent;
+  }
+`;
+
+export const LoginListBottom = styled.div`
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+`;
+
+export const Text = styled.span`
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 18px;
+  color: ${theme.color.gray005};
+`;
+
+export const SignUpText = styled(Text)`
+  cursor: pointer;
+`;
+
+export const Button = styled.button`
+  width: 120px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: ${theme.color.maincolor};
+  border-radius: 5px;
+  color: ${theme.color.white000};
+`;
+
+export const SignUpTitle = styled.span`
+  font-weight: 600;
+  font-size: 21px;
+  line-height: 29px;
+`;
+
+export const JobWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  input[id="check"] {
+    display: none;
+  }
+  input[id="check"] + label {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border: 1px solid ${theme.color.maincolor};
+    border-radius: 50px;
+    cursor: pointer;
+  }
+  input[id="check"]:checked + label {
+    background-color: ${theme.color.maincolor};
+    
+  }
+`;
+
+export const Wrapper = styled.div`
+  width: 80%;
+  span {
+    cursor: pointer;
+  }
+`;
+
+export const CheckBox = styled.input`
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 15px;
+`;
