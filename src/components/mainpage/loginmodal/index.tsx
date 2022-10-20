@@ -2,6 +2,8 @@ import { useState } from "react";
 import { MMMainLogo } from "../../../assets";
 import { Job } from "../../../constance/signup";
 import * as S from "./styles";
+import axios from "axios"
+import cookie from 'react-cookies'
 
 interface PropsType {
   setModal: (modal: boolean) => void;
@@ -14,13 +16,39 @@ interface SignUpInformationProps {
   oneLineIntroduce: string;
 }
 
+interface loginResponseDataProps {
+  grantType: string,
+  accessToken: string,
+  refreshToken: string,
+  accessTokenExpireDate: number
+}
+
 const LoginModal = ({ setModal }: PropsType) => {
-  const [values, setValue] = useState<{ id: string; password: string }>({
-    id: "",
+  const [values, setValue] = useState<{ email: string; password: string }>({
+    email: "",
     password: "",
   });
+  const login = () => {
+    axios.post("/login", values)
+      .then(res => {
+        const {accessToken, refreshToken, accessTokenExpireDate}: loginResponseDataProps = res.data;
+        const expires: Date = new Date(Date.now() + accessTokenExpireDate);
+        
+        //쿠키 저장
+        cookie.save('accessToken', accessToken, { path: '/'});
+        cookie.save('refreshToken', refreshToken, { path: '/', expires: expires});
+        
+        //새로고침
+        window.location.reload();
+      })
+      .catch(err => {
+        const status: number = err.response.status.status;
+        if(status === 404)
+          alert("이메일 또는 비밀번호를 확인해주세요.");
+      })
+  }
   const [radio, setRadio] = useState<string>("Frontend");
-  const [signUp, setSignUp] = useState<boolean>(true);
+  const [signUp, setSignUp] = useState<boolean>(false);
   const [signUpInformation, setSignUpInformation] =
     useState<SignUpInformationProps>({
       name: "",
@@ -38,7 +66,7 @@ const LoginModal = ({ setModal }: PropsType) => {
         onSubmit={(e: React.FormEvent<HTMLFormElement>) => e.preventDefault()}
         onClick={(e: React.MouseEvent<HTMLFormElement>) => e.stopPropagation()}
       >
-        {signUp ? (
+        {!signUp ? (
           <>
             <S.MainLogo src={MMMainLogo} alt="MainLogo" />
             <S.InformationBlock>
@@ -48,7 +76,7 @@ const LoginModal = ({ setModal }: PropsType) => {
                   type="email"
                   autoComplete="off"
                   placeholder="이메일을 입력해주세요."
-                  value={values.id}
+                  value={values.email}
                   onChange={onChange}
                 />
               </S.InputWrapper>
@@ -67,7 +95,7 @@ const LoginModal = ({ setModal }: PropsType) => {
                 <S.SignUpText onClick={() => setSignUp(false)}>
                   회원가입
                 </S.SignUpText>
-                <S.Button onClick={() => console.log(values)}>로그인</S.Button>
+                <S.Button onClick={() => login()}>로그인</S.Button>
               </S.LoginListBottom>
             </S.InformationBlock>
           </>
