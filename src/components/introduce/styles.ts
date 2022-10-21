@@ -9,6 +9,7 @@ export const IntroduceText = styled.span`
 `;
 
 export const IntroduceWrapper = styled.div`
+  margin-left: 7.6%;
   width: 100%;
   display: grid;
   place-content: center;
