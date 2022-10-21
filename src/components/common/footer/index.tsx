@@ -2,7 +2,7 @@ import * as S from "./styles";
 import { MMMainLogo, GithubLogo } from "../../../assets/index";
 
 const Footer = () => {
-  const githubSite = "https://github.com/DSM-MM";
+  const githubSite: string = "https://github.com/DSM-MM";
   return (
     <>
       <S.FooterContainer>
