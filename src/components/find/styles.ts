@@ -5,6 +5,7 @@ export const Flex = styled.div`
 `;
 
 export const Wrapper = styled.div`
+  margin-left: 9.6%;
   width: 100%;
   height: 100%;
   display: flex;
