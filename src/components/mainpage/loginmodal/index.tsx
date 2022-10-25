@@ -10,10 +10,11 @@ interface PropsType {
 }
 
 interface SignUpInformationProps {
-  name: string;
-  email: string;
-  password: string;
-  oneLineIntroduce: string;
+	name: string,
+	email: string,
+  password:  string,
+	introduction: string,
+  jobGroup: number
 }
 
 interface loginResponseDataProps {
@@ -65,19 +66,49 @@ const LoginModal = ({ setModal }: PropsType) => {
           alert("이메일 또는 비밀번호를 확인해주세요.");
       })
   }
+
   const [radio, setRadio] = useState<string>("Frontend");
-  const [signUp, setSignUp] = useState<boolean>(false);
+  const [onSignUp, setOnSignUp] = useState<boolean>(false);
   const [signUpInformation, setSignUpInformation] =
     useState<SignUpInformationProps>({
       name: "",
       email: "",
-      password: "",
-      oneLineIntroduce: "",
+      password:  "",
+      introduction: "",
+      jobGroup: 0,
     });
+
+  const signUp = () => {
+
+    //signUpInformation의 속성의 값들을 모두 배열로 변경
+    const propsArray = Object.values(signUpInformation);
+
+    //forEach문으로 비었는지 확인
+    propsArray.forEach(i => {
+      if(i === "") {
+        alert("값을 모두 입력해 주세요.");
+        return;
+      }
+    })
+
+    axios.post(`${baseUrl}/signup`, signUpInformation)
+      .then(res => {
+        alert("회원가입에 성공했습니다.");
+
+        //새로고침
+        window.location.reload();
+      })
+      .catch(err => {
+        const status: number = err.response.status.status;
+        alert(`회원가입에 실패했습니다. 에러코드: ${status}`);
+      })
+  }
+
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setValue({ ...values, [name]: value });
   };
+
   return (
     <S.ModalBackground onClick={() => setModal(false)}>
       <S.ModalItem
@@ -170,12 +201,12 @@ const LoginModal = ({ setModal }: PropsType) => {
                 <input
                   autoComplete="off"
                   type="text"
-                  value={signUpInformation.oneLineIntroduce}
+                  value={signUpInformation.introduction}
                   placeholder="한줄 소개를 입력하세요."
                   onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                     setSignUpInformation((prevState) => ({
                       ...prevState,
-                      oneLineIntroduce: e.target.value,
+                      introduction: e.target.value,
                     }))
                   }
                 />
@@ -198,7 +229,7 @@ const LoginModal = ({ setModal }: PropsType) => {
                 </S.JobCheckWrapper>
               ))}
             </S.JobWrapper>
-            <S.SignUpButton>회원가입</S.SignUpButton>
+            <S.SignUpButton onClick={()=>signUp()}>회원가입</S.SignUpButton>
           </>
         )}
       </S.ModalItem>
