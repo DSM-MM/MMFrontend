@@ -7,8 +7,10 @@ import cookie from 'react-cookies'
 
 function App() {
 
-  axios.defaults.baseURL = "https://ec2-43-200-178-101.ap-northeast-2.compute.amazonaws.com";
-  axios.defaults.headers.common['Authorization'] = `Bearer ${cookie.load("accessToken")}`;
+  const accessToken = cookie.load("accessToken");
+
+  if(accessToken)
+    axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;
 
   return (
     <>

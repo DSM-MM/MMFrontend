@@ -24,12 +24,28 @@ interface loginResponseDataProps {
 }
 
 const LoginModal = ({ setModal }: PropsType) => {
+
   const [values, setValue] = useState<{ email: string; password: string }>({
     email: "",
     password: "",
   });
+
+  const baseUrl = "http://ec2-43-200-178-101.ap-northeast-2.compute.amazonaws.com";
+
   const login = () => {
-    axios.post("/login", values)
+
+    //values의 속성의 값들을 모두 배열로 변경
+    const propsArray = Object.values(values);
+
+    //forEach문으로 비었는지 확인
+    propsArray.forEach(i => {
+      if(i === "") {
+        alert("값을 모두 입력해 주세요.");
+        return;
+      }
+    })
+    
+    axios.post(`${baseUrl}/login`, values)
       .then(res => {
         const {accessToken, refreshToken, accessTokenExpireDate}: loginResponseDataProps = res.data;
         const expires: Date = new Date(Date.now() + accessTokenExpireDate);
@@ -37,6 +53,8 @@ const LoginModal = ({ setModal }: PropsType) => {
         //쿠키 저장
         cookie.save('accessToken', accessToken, { path: '/'});
         cookie.save('refreshToken', refreshToken, { path: '/', expires: expires});
+
+        alert("로그인에 성공했습니다.");
         
         //새로고침
         window.location.reload();
@@ -66,7 +84,7 @@ const LoginModal = ({ setModal }: PropsType) => {
         onSubmit={(e: React.FormEvent<HTMLFormElement>) => e.preventDefault()}
         onClick={(e: React.MouseEvent<HTMLFormElement>) => e.stopPropagation()}
       >
-        {!signUp ? (
+        {!onSignUp ? (
           <>
             <S.MainLogo src={MMMainLogo} alt="MainLogo" />
             <S.InformationBlock>
@@ -92,7 +110,7 @@ const LoginModal = ({ setModal }: PropsType) => {
               </S.InputWrapper>
               <S.LoginListBottom>
                 <S.Text>아직 계정이 없으신가요?</S.Text>
-                <S.SignUpText onClick={() => setSignUp(false)}>
+                <S.SignUpText onClick={() => setOnSignUp(true)}>
                   회원가입
                 </S.SignUpText>
                 <S.Button onClick={() => login()}>로그인</S.Button>
@@ -102,7 +120,7 @@ const LoginModal = ({ setModal }: PropsType) => {
         ) : (
           <>
             <S.Wrapper>
-              <span onClick={() => setSignUp(true)}>&lt;</span>
+              <span onClick={() => setOnSignUp(true)}>&lt;</span>
             </S.Wrapper>
             <S.SignUpTitle>회원가입</S.SignUpTitle>
             <S.InputFlexWrapper>
