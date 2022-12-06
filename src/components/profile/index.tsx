@@ -1,6 +1,8 @@
 import Header from "../common/header";
 import * as S from "./styles";
 import { ProfileLogo } from "../../assets";
+import { useEffect } from "react";
+import { profile } from "../../apis/profile";
 
 const Pencil = () => {
   return (
@@ -20,6 +22,16 @@ const Pencil = () => {
 };
 
 const Profile = () => {
+  useEffect(() => {
+    profile()
+      .then((res) => console.log(res))
+      .catch((err) => console.error(err));
+  }, []);
+  const logout = () => {
+    window.localStorage.removeItem("access_token");
+    window.localStorage.removeItem("refresh_token");
+    window.location.href = "/";
+  };
   return (
     <S.Body>
       <Header />
@@ -33,10 +45,13 @@ const Profile = () => {
         <S.Profile>
           <S.ProfilePictureDiv>
             <S.ProfilePicture src={ProfileLogo} alt="Profile" />
-            <S.ProfileEditButton>
-              <Pencil />
-              프로필 편집
-            </S.ProfileEditButton>
+            <S._Wrapper>
+              <S.Logout onClick={logout}>로그아웃</S.Logout>
+              <S.ProfileEditButton>
+                <Pencil />
+                프로필 편집
+              </S.ProfileEditButton>
+            </S._Wrapper>
           </S.ProfilePictureDiv>
           <S.Content>
             <S.Name>홍 길 동</S.Name>

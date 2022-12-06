@@ -3,7 +3,6 @@ import * as S from "./styles";
 import {
   ProfileLogo,
   MentoMatch,
-  Messenger,
   FindProject,
   MMMainLogo,
 } from "../../../assets";
@@ -18,9 +17,6 @@ const Header = () => {
           </Link>
           <Link className="menu" to="/mento">
             <img src={MentoMatch} alt="Mento Match Logo" />
-          </Link>
-          <Link className="menu" to="/message">
-            <img src={Messenger} alt="Messenger" />
           </Link>
           <Link className="menu" to="/find">
             <img src={FindProject} alt="Find" />

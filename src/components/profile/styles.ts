@@ -1,7 +1,22 @@
 import styled from "@emotion/styled";
+import theme from "../../styles/theme";
 
 export const Body = styled.div`
   display: flex;
+`;
+
+export const _Wrapper = styled.div`
+  display: flex;
+`;
+
+export const Logout = styled.button`
+  background: ${theme.color.maincolor};
+  color: ${theme.color.white000};
+  border-radius: 7px;
+  width: max-content;
+  padding: 0 10px;
+  margin-right: 10px;
+  cursor: pointer;
 `;
 
 export const Wrapper = styled.div`
