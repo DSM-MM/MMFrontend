@@ -36,6 +36,7 @@ export const LoginBtn = styled.div`
 `;
 
 export const ImgWrapper = styled.div`
+  bottom: 0;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -43,10 +44,14 @@ export const ImgWrapper = styled.div`
 `;
 
 export const LeftImg = styled.img`
+  left: 0;
+  bottom: 0;
   width: 300px;
 `;
 
 export const RightImg = styled.img`
+  right: 0;
+  bottom: 0;
   width: 300px;
 `;
 
@@ -60,6 +65,17 @@ export const ArrowWrapper = styled.div`
   flex-direction: column;
   justify-content: space-around;
 `;
+
+export const MainWrapper = styled.div`
+  height: 100vh;
+  width: 100vw;
+`
+
+export const TitleDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`
 
 export const IntroduceWrapper = styled.div`
   height: 100vh;
