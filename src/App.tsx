@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import { BrowserRouter } from "react-router-dom";
 import UserRouter from "./router/UserRouter";
 import { GlobalStyle } from "./styles/global";
+import axios from "axios";
+import cookie from 'react-cookies'
 
 function App() {
   const [isLogin, setIsLogin] = useState<boolean>(false);
