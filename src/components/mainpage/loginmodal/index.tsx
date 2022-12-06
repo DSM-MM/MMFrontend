@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { MMMainLogo } from "../../../assets";
+import { GoogleOAuth, MMMainLogo } from "../../../assets";
 import { Job } from "../../../constance/signup";
 import * as S from "./styles";
 
@@ -15,6 +15,7 @@ interface SignUpInformationProps {
 }
 
 const LoginModal = ({ setModal }: PropsType) => {
+  const GoogleURL: string = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${process.env.REACT_APP_GOOGLE_CLIENT_ID}&response_type=token&redirect_uri=http://localhost:3000&scope=https://www.googleapis.com/auth/userinfo.email`;
   const [values, setValue] = useState<{ id: string; password: string }>({
     id: "",
     password: "",
@@ -32,6 +33,12 @@ const LoginModal = ({ setModal }: PropsType) => {
     const { name, value } = e.target;
     setValue({ ...values, [name]: value });
   };
+  const onClick = (): void => {
+    window.location.assign(GoogleURL);
+    localStorage.getItem("token");
+    localStorage.getItem("access-token");
+  };
+  console.log(`${process.env.REACT_APP_GOOGLE_CLIENT_ID}`);
   return (
     <S.ModalBackground onClick={() => setModal(false)}>
       <S.ModalItem
@@ -67,8 +74,12 @@ const LoginModal = ({ setModal }: PropsType) => {
                 <S.SignUpText onClick={() => setSignUp(false)}>
                   회원가입
                 </S.SignUpText>
-                <S.Button onClick={() => console.log(values)}>로그인</S.Button>
+                <S.Button>로그인</S.Button>
               </S.LoginListBottom>
+              <S.GoogleLogin onClick={onClick}>
+                <S.GoogleImg src={GoogleOAuth} alt="구글 사진" />
+                <span>구글로 로그인</span>
+              </S.GoogleLogin>
             </S.InformationBlock>
           </>
         ) : (
