@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { login } from "../../../apis/login";
+import { signup } from "../../../apis/signup";
 import { GoogleOAuth, MMMainLogo } from "../../../assets";
 import { Job } from "../../../constance/signup";
 import * as S from "./styles";
@@ -14,10 +16,17 @@ interface SignUpInformationProps {
   oneLineIntroduce: string;
 }
 
+interface loginResponseDataProps {
+  grantType: string;
+  accessToken: string;
+  refreshToken: string;
+  accessTokenExpireDate: number;
+}
+
 const LoginModal = ({ setModal }: PropsType) => {
   const GoogleURL: string = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${process.env.REACT_APP_GOOGLE_CLIENT_ID}&response_type=token&redirect_uri=http://localhost:3000&scope=https://www.googleapis.com/auth/userinfo.email`;
-  const [values, setValue] = useState<{ id: string; password: string }>({
-    id: "",
+  const [values, setValue] = useState<{ email: string; password: string }>({
+    email: "",
     password: "",
   });
   const [radio, setRadio] = useState<string>("Frontend");
@@ -33,12 +42,28 @@ const LoginModal = ({ setModal }: PropsType) => {
     const { name, value } = e.target;
     setValue({ ...values, [name]: value });
   };
-  const onClick = (): void => {
-    window.location.assign(GoogleURL);
-    localStorage.getItem("token");
-    localStorage.getItem("access-token");
+  const LoginOnClick = () => {
+    login(values)
+      .then((res) => {
+        const {
+          accessToken,
+          refreshToken,
+          accessTokenExpireDate,
+        }: loginResponseDataProps = res.data;
+        const expires: Date = new Date(Date.now() + accessTokenExpireDate);
+        window.localStorage.setItem("access_token", accessToken);
+        window.localStorage.setItem("refresh_token", refreshToken);
+        //새로고침
+        window.location.reload();
+      })
+      .catch((err) => {
+        const status: number = err.response.status.status;
+        if (status === 404) {
+          alert("이메일이나 비밀번호를 한번 더 확인하세요");
+        }
+      });
   };
-  console.log(`${process.env.REACT_APP_GOOGLE_CLIENT_ID}`);
+
   return (
     <S.ModalBackground onClick={() => setModal(false)}>
       <S.ModalItem
@@ -55,7 +80,7 @@ const LoginModal = ({ setModal }: PropsType) => {
                   type="email"
                   autoComplete="off"
                   placeholder="이메일을 입력해주세요."
-                  value={values.id}
+                  value={values.email}
                   onChange={onChange}
                 />
               </S.InputWrapper>
@@ -74,12 +99,8 @@ const LoginModal = ({ setModal }: PropsType) => {
                 <S.SignUpText onClick={() => setSignUp(false)}>
                   회원가입
                 </S.SignUpText>
-                <S.Button>로그인</S.Button>
+                <S.Button onClick={LoginOnClick}>로그인</S.Button>
               </S.LoginListBottom>
-              <S.GoogleLogin onClick={onClick}>
-                <S.GoogleImg src={GoogleOAuth} alt="구글 사진" />
-                <span>구글로 로그인</span>
-              </S.GoogleLogin>
             </S.InformationBlock>
           </>
         ) : (
@@ -163,7 +184,25 @@ const LoginModal = ({ setModal }: PropsType) => {
                 </S.JobCheckWrapper>
               ))}
             </S.JobWrapper>
-            <S.SignUpButton>회원가입</S.SignUpButton>
+            <S.SignUpButton
+              onClick={() =>
+                signup(
+                  signUpInformation.name,
+                  signUpInformation.email,
+                  signUpInformation.password,
+                  signUpInformation.oneLineIntroduce,
+                  radio
+                )
+                  .then((res) => {
+                    console.log(res);
+                    alert("회원가입을 성공하였습니다.");
+                    window.location.reload();
+                  })
+                  .catch((error) => console.error(error))
+              }
+            >
+              회원가입
+            </S.SignUpButton>
           </>
         )}
       </S.ModalItem>
