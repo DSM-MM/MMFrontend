@@ -10,15 +10,14 @@ import Profile from "../components/profile";
 import ViewProject from "../components/view";
 import MainPage from "../components/mainpage";
 
-const UserRouter = () => {
+const UserRouter = ({ isLogin }: { isLogin: boolean }) => {
   return (
     <Routes>
-      <Route path="/" element={<MainPage />} />
+      <Route path="/" element={isLogin ? <Main /> : <MainPage />} />
       <Route path="/test" element={<Test />} />
       <Route path="/find" element={<FindProject />} />
       <Route path="/mento" element={<Match />} />
       <Route path="/mento/:job/:name" element={<Introduce />} />
-      <Route path="/main" element={<Main />} />
       <Route path="/*" element={<NotFound />} />
       <Route path="/profile" element={<Profile />} />
       <Route path="/find/create" element={<CreateProject />} />

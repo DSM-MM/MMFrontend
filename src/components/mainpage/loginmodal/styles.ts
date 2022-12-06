@@ -138,3 +138,20 @@ export const SignUpButton = styled.button`
   justify-content: center;
   align-items: center;
 `;
+
+export const GoogleImg = styled.img`
+  width: 30px;
+  height: 30px;
+`;
+
+export const GoogleLogin = styled.a`
+  width: 350px;
+  height: 50px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: ${theme.color.white002};
+  border: 1px solid ${theme.color.gray000};
+  border-radius: 10px;
+  cursor: pointer;
+`;
