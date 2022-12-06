@@ -54,7 +54,7 @@ const LoginModal = ({ setModal }: PropsType) => {
         window.localStorage.setItem("access_token", accessToken);
         window.localStorage.setItem("refresh_token", refreshToken);
         //새로고침
-        window.location.reload();
+        window.location.href = "/main";
       })
       .catch((err) => {
         const status: number = err.response.status.status;
