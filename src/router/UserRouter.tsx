@@ -13,8 +13,8 @@ import MainPage from "../components/mainpage";
 const UserRouter = () => {
   return (
     <Routes>
-      <Route path="/" element={<Main />} />
-      <Route path="/main" element={<MainPage />} />
+      <Route path="/" element={<MainPage />} />
+      <Route path="/main" element={<Main />} />
       <Route path="/test" element={<Test />} />
       <Route path="/find" element={<FindProject />} />
       <Route path="/mento" element={<Match />} />
