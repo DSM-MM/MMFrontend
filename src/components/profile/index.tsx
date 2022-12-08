@@ -1,6 +1,6 @@
 import Header from "../common/header";
 import * as S from "./styles";
-import { ProfileLogo } from "../../assets";
+import { ProfileImage } from "../../assets";
 import { useEffect } from "react";
 import { profile } from "../../apis/profile";
 
@@ -44,7 +44,9 @@ const Profile = () => {
         </S.Background>
         <S.Profile>
           <S.ProfilePictureDiv>
-            <S.ProfilePicture src={ProfileLogo} alt="Profile" />
+            <S._ProfileWrapper>
+              <S.ProfilePicture src={ProfileImage} alt="Profile" />
+            </S._ProfileWrapper>
             <S._Wrapper>
               <S.Logout onClick={logout}>로그아웃</S.Logout>
               <S.ProfileEditButton>

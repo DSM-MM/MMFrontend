@@ -35,9 +35,7 @@ export const Background = styled.div`
   align-items: center;
   height: 40vh;
   cursor: default;
-
   box-sizing: border-box;
-
   img {
     display: block;
     object-fit: cover;
@@ -47,6 +45,18 @@ export const Background = styled.div`
     opacity: 1;
     object-position: center 60%;
   }
+`;
+
+export const _ProfileWrapper = styled.div`
+  z-index: 1;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  box-shadow: 0px 2px 4px 2px rgba(0, 0, 0, 0.25);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fcfcfc;
 `;
 
 export const Profile = styled.div`
@@ -81,13 +91,7 @@ export const Pencil = styled.svg`
   margin-right: 5px;
 `;
 
-export const ProfilePicture = styled.img`
-  z-index: 1;
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  box-shadow: 0px 2px 4px 2px rgba(0, 0, 0, 0.25);
-`;
+export const ProfilePicture = styled.img``;
 
 export const Content = styled.div`
   padding-left: 14px;
