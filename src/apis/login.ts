@@ -7,7 +7,7 @@ export interface LoginType {
 
 export const login = async (value: LoginType) => {
   const response = await axios.post(
-    `http://${process.env.REACT_APP_BASE_URL}/login`,
+    `${process.env.REACT_APP_BASE_URL}/login`,
     value
   );
   return response;

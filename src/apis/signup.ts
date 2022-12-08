@@ -16,7 +16,7 @@ export const signup = async (
   jobGroup: string
 ) => {
   await axios.post<SignUpType>(
-    `http://${process.env.REACT_APP_BASE_URL}/signup`,
+    `${process.env.REACT_APP_BASE_URL}/signup`,
     {
       name: name,
       email: email,
