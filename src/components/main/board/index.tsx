@@ -2,7 +2,7 @@ import * as S from "./styles";
 import { FamousSaying } from "../../../constance/main/index";
 
 const Board = () => {
-  const rand = (min: number, max: number) =>
+  const rand = (min: number, max: number): number =>
     Math.floor(Math.random() * (max - min + 1)) + min;
   return (
     <>
