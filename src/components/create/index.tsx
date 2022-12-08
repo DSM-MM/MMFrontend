@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 const CreateProject = () => {
   const [tag, setTag] = useState<string | "">("");
-  const [hash, setHash] = useState<string[] | []>([]);
+  const [hash, setHash] = useState<string[]>([]);
   const [input, setInput] = useState<string>("");
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -14,9 +14,10 @@ const CreateProject = () => {
     if (compare.test(tag) || tag === "") {
       alert("공백으로 시작하거나 아무것도 입력 안하셨습니다.");
     } else {
-      for(let i = 0; i < hash.length; i++){
-        if(hash.filter((ele: string) => ele !== hash[i])){
+      for (const str of hash) {
+        if (tag === str) {
           alert("중복되는 태그가 존재합니다.");
+          setTag("");
           return;
         }
       }
@@ -85,7 +86,7 @@ const CreateProject = () => {
               <S.CoreWrapper>
                 <textarea
                   spellCheck="false"
-                  placeholder="프로젝트 내용을 홍보해봐요!"
+                  placeholder="프로젝트를 홍보해보아요!"
                   onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
                     setInput(e.target.value)
                   }
@@ -95,14 +96,14 @@ const CreateProject = () => {
             </div>
           </S.InputWrapper>
           <S.ButtonWrapper>
-            <Link to="/find">
-              <S.Button>만들기</S.Button>
-            </Link>
             <Link
               onClick={() => alert("중간에 나가시면 내용이 다 날라갑니다.")}
               to="/find"
             >
               <S.Button>취소</S.Button>
+            </Link>
+            <Link to="/find">
+              <S.Button>만들기</S.Button>
             </Link>
           </S.ButtonWrapper>
         </S.InnerWrapper>
