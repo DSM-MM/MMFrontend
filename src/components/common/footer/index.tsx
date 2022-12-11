@@ -45,10 +45,10 @@ const Footer = () => {
                   <span>김경호</span>
                 </a>
                 <a
-                  href="https://github.com/SaeyeonPark"
+                  href="https://github.com/biscrab"
                   style={{ color: "#FFFFFF" }}
                 >
-                  <span>박세연</span>
+                  <span>이상운</span>
                 </a>
               </div>
               <div className="developer">
