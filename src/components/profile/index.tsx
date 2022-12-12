@@ -1,8 +1,8 @@
 import Header from "../common/header";
 import * as S from "./styles";
 import { ProfileImage } from "../../assets";
-import { useEffect } from "react";
-import { getProfile } from "../../apis/profile";
+import { useEffect, useState } from "react";
+import { getProfile, ProfileType, ProjectType } from "../../apis/profile";
 
 const Pencil = () => {
   return (
@@ -22,9 +22,25 @@ const Pencil = () => {
 };
 
 const Profile = () => {
+  const [userState, setUserState] = useState<ProfileType>({
+    id: 0,
+    projects: [],
+    name: "",
+    email: "",
+    password: "",
+    introduction: "",
+    jobGroup: "",
+    language: "",
+    githubLink: "",
+    provider: "",
+    providerId: "",
+    role: "",
+  });
   useEffect(() => {
     getProfile()
-      .then((res) => console.log(res))
+      .then((res) => {
+        if (res) setUserState(res.data);
+      })
       .catch((err) => console.error(err));
   }, []);
   const logoutOnClick = () => {
@@ -56,24 +72,12 @@ const Profile = () => {
             </S._Wrapper>
           </S.ProfilePictureDiv>
           <S.Content>
-            <S.Name>홍 길 동</S.Name>
-            <S.Introduce>
-              DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM UP
-              화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅DSM UP 화이팅 DSM
-              UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅
-              DSM UP 화이팅 DSM UP 화이팅DSM UP 화이팅 DSM UP 화이팅 DSM UP
-              화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM
-              UP 화이팅DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅
-              DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅DSM UP
-              화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM
-              UP 화이팅 DSM UP 화이팅 DSM UP 화이팅DSM UP 화이팅 DSM UP 화이팅
-              DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM UP 화이팅 DSM UP
-              화이팅 UP 파팅
-            </S.Introduce>
+            <S.Name>{userState.name}</S.Name>
+            <S.Introduce>{userState.introduction}</S.Introduce>
             <S.InfoDiv>
               <S.Info>
                 <S.InfoTitle>Email</S.InfoTitle>
-                <S.InfoContent>Test123@gmail.com</S.InfoContent>
+                <S.InfoContent>{userState.email}</S.InfoContent>
               </S.Info>
               <S.Info>
                 <S.InfoTitle>비밀번호</S.InfoTitle>
@@ -81,15 +85,15 @@ const Profile = () => {
               </S.Info>
               <S.Info>
                 <S.InfoTitle>평점</S.InfoTitle>
-                <S.InfoContent>1.33</S.InfoContent>
+                <S.InfoContent>{userState.provider}</S.InfoContent>
               </S.Info>
               <S.Info>
                 <S.InfoTitle>직군</S.InfoTitle>
-                <S.InfoContent>Frontend Developer</S.InfoContent>
+                <S.InfoContent>{userState.jobGroup} Developer</S.InfoContent>
               </S.Info>
               <S.Info>
                 <S.InfoTitle>사용언어</S.InfoTitle>
-                <span>C, C++, Java, etc</span>
+                <span>{userState.language}</span>
               </S.Info>
             </S.InfoDiv>
           </S.Content>
@@ -102,18 +106,15 @@ const Profile = () => {
                   참가분야 : Frontend Developer
                 </S.ParticipationField>
               </S.Project>
-              <S.Project>
-                <S.ProjectTitle>MBTogether</S.ProjectTitle>
-                <S.ParticipationField>
-                  참가분야 : Frontend Developer
-                </S.ParticipationField>
-              </S.Project>
-              <S.Project>
-                <S.ProjectTitle>DMS Student</S.ProjectTitle>
-                <S.ParticipationField>
-                  참가분야 : Frontend Developer
-                </S.ParticipationField>
-              </S.Project>
+              {userState.projects &&
+                userState.projects.map((ele: ProjectType) => (
+                  <S.Project key={ele.id}>
+                    <S.ProjectTitle>{ele.title}</S.ProjectTitle>
+                    <S.ParticipationField>
+                      참가분야: {ele.needed}
+                    </S.ParticipationField>
+                  </S.Project>
+                ))}
             </S.ProjectList>
           </S.ProjectDiv>
         </S.Profile>

@@ -1,8 +1,8 @@
-import instance from "./axios";
+import axios from "axios";
 
 export interface ProfileType {
   id: number;
-  projects: ProjectType[];
+  projects: [];
   name: string;
   email: string;
   password: string;
@@ -23,21 +23,26 @@ export interface ProjectType {
   content: string;
   needed: string;
   preference: string;
-  images: {
-    id: number;
-    project: string;
-    imageUrl: string;
-  }[];
+  images: [
+    {
+      id: number;
+      project: string;
+      imageUrl: string;
+    }
+  ];
 }
 
-export const profile = async () => {
-  const ACCESS_TOKEN: string | null =
+export const getProfile = async () => {
+  const Authorization: string | null =
     window.localStorage.getItem("access_token");
-  if (!ACCESS_TOKEN) return;
-  const response = await instance.get<ProfileType>(`/mypage`, {
-    headers: {
-      ACCESS_TOKEN: ACCESS_TOKEN,
-    },
-  });
+  if (!Authorization) return;
+  const response = await axios.get<ProfileType>(
+    `${process.env.REACT_APP_BASE_URL}/mypage`,
+    {
+      headers: {
+        Authorization: Authorization,
+      },
+    }
+  );
   return response;
 };
