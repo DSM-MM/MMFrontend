@@ -2,7 +2,7 @@ import Header from "../common/header";
 import * as S from "./styles";
 import { ProfileImage } from "../../assets";
 import { useEffect } from "react";
-import { profile } from "../../apis/profile";
+import { getProfile } from "../../apis/profile";
 
 const Pencil = () => {
   return (
@@ -23,11 +23,11 @@ const Pencil = () => {
 
 const Profile = () => {
   useEffect(() => {
-    profile()
+    getProfile()
       .then((res) => console.log(res))
       .catch((err) => console.error(err));
   }, []);
-  const logout = () => {
+  const logoutOnClick = () => {
     window.localStorage.removeItem("access_token");
     window.localStorage.removeItem("refresh_token");
     window.location.href = "/";
@@ -48,7 +48,7 @@ const Profile = () => {
               <S.ProfilePicture src={ProfileImage} alt="Profile" />
             </S._ProfileWrapper>
             <S._Wrapper>
-              <S.Logout onClick={logout}>로그아웃</S.Logout>
+              <S.Logout onClick={logoutOnClick}>로그아웃</S.Logout>
               <S.ProfileEditButton>
                 <Pencil />
                 프로필 편집
