@@ -36,6 +36,7 @@ const Profile = () => {
     providerId: "",
     role: "",
   });
+  const [update, setUpdate] = useState<boolean>(false);
   useEffect(() => {
     getProfile()
       .then((res) => {
@@ -65,7 +66,7 @@ const Profile = () => {
             </S._ProfileWrapper>
             <S._Wrapper>
               <S.Logout onClick={logoutOnClick}>로그아웃</S.Logout>
-              <S.ProfileEditButton>
+              <S.ProfileEditButton onClick={() => setUpdate(true)}>
                 <Pencil />
                 프로필 편집
               </S.ProfileEditButton>
@@ -100,13 +101,7 @@ const Profile = () => {
           <S.ProjectDiv>
             <S.MyProjects>내 프로젝트</S.MyProjects>
             <S.ProjectList>
-              <S.Project>
-                <S.ProjectTitle>DSM UP MM</S.ProjectTitle>
-                <S.ParticipationField>
-                  참가분야 : Frontend Developer
-                </S.ParticipationField>
-              </S.Project>
-              {userState.projects &&
+              {userState.projects ? (
                 userState.projects.map((ele: ProjectType) => (
                   <S.Project key={ele.id}>
                     <S.ProjectTitle>{ele.title}</S.ProjectTitle>
@@ -114,7 +109,10 @@ const Profile = () => {
                       참가분야: {ele.needed}
                     </S.ParticipationField>
                   </S.Project>
-                ))}
+                ))
+              ) : (
+                <span>프로젝트가 비어있습니다.</span>
+              )}
             </S.ProjectList>
           </S.ProjectDiv>
         </S.Profile>
