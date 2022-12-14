@@ -40,7 +40,7 @@ export const InputWrapper = styled.div`
 `;
 
 export const TagInput = styled.input`
-  width: 40%;
+  width: 60%;
   font-size: 15px;
   line-height: 20px;
   color: ${theme.color.gray004};
@@ -48,8 +48,8 @@ export const TagInput = styled.input`
 
 export const Tag = styled.div`
   width: max-content;
-  padding: 4px 8px 4px 8px;
-  border-radius: 15px;
+  padding: 8px 53px;
+  border-radius: 100px;
   background-color: ${theme.color.maincolor};
   color: ${theme.color.white000};
   margin-right: 15px;
@@ -66,6 +66,8 @@ export const TagWrapper = styled.div`
   display: flex;
   align-items: center;
   overflow-x: scroll;
+  margin-bottom: 20px;
+  margin-top: 10px;
 `;
 
 export const FileWrapper = styled.form`

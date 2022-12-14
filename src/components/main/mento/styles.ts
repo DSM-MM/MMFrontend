@@ -35,6 +35,27 @@ export const Card = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+  @keyframes sizeup {
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(1.05);
+    }
+  }
+  @keyframes sizedown {
+    0% {
+      transform: scale(1.05);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  animation: sizedown 0.4s;
+  :hover {
+    animation: sizeup 0.4s;
+    animation-fill-mode: forwards;
+  }
 `;
 
 export const CardText = styled.span`
