@@ -3,11 +3,13 @@ import Header from "../common/header";
 import { PlusImg, Folder } from "../../assets";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { createProject } from "../../apis/createproject";
 
 const CreateProject = () => {
   const [tag, setTag] = useState<string | "">("");
   const [hash, setHash] = useState<string[]>([]);
   const [input, setInput] = useState<string>("");
+  const [title, setTitle] = useState<string>("");
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     let compare = /[\s]/g;
@@ -25,6 +27,11 @@ const CreateProject = () => {
       setTag("");
     }
   };
+  const createOnClick = () => {
+    createProject(title, hash, input)
+      .then((res) => console.log(res))
+      .catch((err) => console.error(err));
+  };
   return (
     <>
       <S.Wrapper>
@@ -35,6 +42,10 @@ const CreateProject = () => {
               autoComplete="off"
               type="text"
               placeholder="제목을 입력해주세요."
+              value={title}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                setTitle(e.target.value)
+              }
             />
             <span>추가할 태그</span>
             <div>
@@ -79,10 +90,6 @@ const CreateProject = () => {
                   )}
                 </S.TagWrapper>
               </form>
-              <S.FileWrapper>
-                <img src={Folder} alt="Folder Img" />
-                <input type="file" accept="image/*" />
-              </S.FileWrapper>
               <S.CoreWrapper>
                 <textarea
                   spellCheck="false"
@@ -102,9 +109,7 @@ const CreateProject = () => {
             >
               <S.Button>취소</S.Button>
             </Link>
-            <Link to="/find">
-              <S.Button>만들기</S.Button>
-            </Link>
+            <S.Button onClick={createOnClick}>만들기</S.Button>
           </S.ButtonWrapper>
         </S.InnerWrapper>
       </S.Wrapper>

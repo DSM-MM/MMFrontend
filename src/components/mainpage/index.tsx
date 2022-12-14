@@ -9,11 +9,13 @@ import {
   Menu3,
 } from "../../assets";
 import Footer from "../common/footer";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import LoginModal from "./loginmodal";
+import useMoveScrool from "../../hooks/useMoveScroll";
 
 const MainPage = () => {
   const [modal, setModal] = useState<boolean>(false);
+  const ref = useRef<HTMLDivElement>();
   useEffect(() => {
     if (modal) {
       document.body.style.overflow = "hidden";
@@ -64,7 +66,11 @@ const MainPage = () => {
           </S.Text>
           <img alt="이미지1" src={Menu3} />
         </S.TextWrapper>
-        <S.ArrowImg src={TopArrow} alt="to move Top" />
+        <S.ArrowImg
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          src={TopArrow}
+          alt="to move Top"
+        />
       </S.IntroduceWrapper>
       <Footer />
     </S.Wrapper>
