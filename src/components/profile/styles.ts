@@ -106,7 +106,6 @@ export const Name = styled.h2`
   font-size: 34px;
   font-weight: 600;
   width: 126px;
-  margin-top: 13px;
 `;
 
 export const Introduce = styled.div`
