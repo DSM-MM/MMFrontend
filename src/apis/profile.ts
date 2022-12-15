@@ -2,7 +2,7 @@ import axios from "axios";
 
 export interface ProfileType {
   id: number;
-  projects: [];
+  projects: ProjectType[];
   name: string;
   email: string;
   password: string;
@@ -23,13 +23,6 @@ export interface ProjectType {
   content: string;
   needed: string;
   preference: string;
-  images: [
-    {
-      id: number;
-      project: string;
-      imageUrl: string;
-    }
-  ];
 }
 
 export const getProfile = async () => {
