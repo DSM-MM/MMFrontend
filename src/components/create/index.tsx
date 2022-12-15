@@ -2,7 +2,7 @@ import * as S from "./styles";
 import Header from "../common/header";
 import { PlusImg, Folder } from "../../assets";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { createProject } from "../../apis/createproject";
 
 const CreateProject = () => {
@@ -10,6 +10,7 @@ const CreateProject = () => {
   const [hash, setHash] = useState<string[]>([]);
   const [input, setInput] = useState<string>("");
   const [title, setTitle] = useState<string>("");
+  const nav = useNavigate();
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     let compare = /[\s]/g;
@@ -28,8 +29,11 @@ const CreateProject = () => {
     }
   };
   const createOnClick = () => {
-    createProject(title, hash, input)
-      .then((res) => console.log(res))
+    createProject(title, hash[0], input)
+      .then((res) => {
+        nav(-1);
+        console.log(res);
+      })
       .catch((err) => console.error(err));
   };
   return (
