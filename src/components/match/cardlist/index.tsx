@@ -1,15 +1,7 @@
 import styled from "@emotion/styled";
 import { useEffect, useState } from "react";
 import { getMentors } from "../../../apis/getMentor";
-import { CardInformation } from "../../../constance/card";
 import Card from "../card";
-
-interface PropsType {
-  job: string;
-  name: string;
-  introduce: string;
-  gpa: number;
-}
 
 interface MentorType {
   id: number;
