@@ -11,6 +11,7 @@ export const Wrapper = styled.div`
 `;
 
 export const InnerWrapper = styled.div`
+  width: 50%;
   height: 80%;
   display: flex;
   flex-direction: column;
