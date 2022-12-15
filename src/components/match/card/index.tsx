@@ -3,15 +3,15 @@ import { Link } from "react-router-dom";
 import { ProfileLogo } from "../../../assets/index";
 
 interface PropsType {
+  id: number;
   job: string;
   name: string;
   introduce: string;
   gpa: number;
 }
 
-const Card = ({ job, name, introduce, gpa }: PropsType) => (
-  <>
-    <Link to={`/mento/${job}/${name}`}>
+const Card = ({ id ,job, name, introduce, gpa }: PropsType) => (
+    <Link to={`/mento/${id}`}>
       <CardBackground>
         <Job>{job}</Job>
         <Profile>
@@ -22,7 +22,6 @@ const Card = ({ job, name, introduce, gpa }: PropsType) => (
         <GpaText>평점: {gpa}</GpaText>
       </CardBackground>
     </Link>
-  </>
 );
 
 const CardBackground = styled.div`

@@ -19,7 +19,7 @@ const UserRouter = () => {
       <Route path="/test" element={<Test />} />
       <Route path="/find" element={<FindProject />} />
       <Route path="/mento" element={<Match />} />
-      <Route path="/mento/:job/:name" element={<Introduce />} />
+      <Route path="/mento/:id" element={<Introduce />} />
       <Route path="/*" element={<NotFound />} />
       <Route path="/profile" element={<Profile />} />
       <Route path="/find/create" element={<CreateProject />} />
