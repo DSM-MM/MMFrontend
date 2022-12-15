@@ -17,7 +17,6 @@ const Introduce: React.FC = () => {
             </div>
             <MentoCard id={id.id}/>
             <S.ButtonWrapper>
-              <S.LinkButton>질문하러 가기</S.LinkButton>
               <Link to="/mento">
                 <S.LinkButton>다른 멘토 찾기</S.LinkButton>
               </Link>

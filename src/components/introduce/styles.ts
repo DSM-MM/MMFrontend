@@ -12,6 +12,7 @@ export const IntroduceWrapper = styled.div`
   width: 100%;
   display: grid;
   place-content: center;
+  margin-top: 10%;
 `;
 
 export const ButtonWrapper = styled.div`
