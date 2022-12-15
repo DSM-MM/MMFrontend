@@ -7,15 +7,18 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { callProject } from "../../apis/call";
 
-interface Type {
+interface ListType {
+  id: number;
+  user: number;
   title: string;
-  maker: string;
-  time: string;
-  tag: string[];
+  period: string;
+  content: string;
+  needed: string;
+  preference: string;
 }
 
 const FindProject = () => {
-  const [list, setList] = useState<any>();
+  const [list, setList] = useState<ListType[]>();
   useEffect(() => {
     callProject()
       .then((res) => {
@@ -24,27 +27,23 @@ const FindProject = () => {
       .catch((err) => console.error(err));
   }, []);
   return (
-    <>
-      <S.Flex>
-        <Header />
-        <S.Wrapper>
-          <TopList />
-          <S.ListWrapper>
-            {list && list.map((value: Type, index: number) => (
-              <Link to={`/find/${index}`}>
-                <Information
-                  key={index}
-                  title={value.title}
-                  maker={value.maker}
-                  time={value.time}
-                  tag={value.tag}
-                />
-              </Link>
-            ))}
-          </S.ListWrapper>
-        </S.Wrapper>
-      </S.Flex>
-    </>
+    <S.Flex>
+      <Header />
+      <S.Wrapper>
+        <TopList />
+        <S.ListWrapper>
+          {list?.map((element: ListType) => (
+            <Link to={`/find/${element.id}`} key={element.id}>
+              <Information
+                title={element.title}
+                time={element.period}
+                tag={element.needed}
+              />
+            </Link>
+          ))}
+        </S.ListWrapper>
+      </S.Wrapper>
+    </S.Flex>
   );
 };
 
