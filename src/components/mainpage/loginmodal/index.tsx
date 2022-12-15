@@ -3,6 +3,7 @@ import { login } from "../../../apis/login";
 import { signup } from "../../../apis/signup";
 import { MMMainLogo } from "../../../assets";
 import { Job } from "../../../constance/signup";
+import { customToast } from "../../../util/toast";
 import * as S from "./styles";
 
 interface PropsType {
@@ -60,7 +61,9 @@ const LoginModal = ({ setModal }: PropsType) => {
         const status: number = err.response.status.status;
         if (status === 404) {
           alert("이메일이나 비밀번호를 한번 더 확인하세요");
+          return;
         }
+        customToast("로그인에 실패하였습니다", "error");
       });
   };
 
