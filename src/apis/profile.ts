@@ -3,7 +3,7 @@ import axios from "axios";
 export interface ProfileType {
   id: number;
   projects: ProjectType[];
-  name: string;
+  nickName: string;
   email: string;
   password: string;
   introduction: string;

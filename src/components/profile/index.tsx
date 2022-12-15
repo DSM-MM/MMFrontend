@@ -27,7 +27,10 @@ const Profile = () => {
   useEffect(() => {
     getProfile()
       .then((res) => {
-        if (res) setUserState(res.data);
+        if (res) {
+          setUserState(res.data);
+          console.log(res);
+        };
       })
       .catch((err) => console.error(err));
   }, []);
@@ -60,7 +63,7 @@ const Profile = () => {
             </S._Wrapper>
           </S.ProfilePictureDiv>
           <S.Content>
-            <S.Name>{userState?.name}</S.Name>
+            <S.Name>{userState?.nickName}</S.Name>
             <S.Introduce>{userState?.introduction}</S.Introduce>
             <S.InfoDiv>
               <S.Info>
