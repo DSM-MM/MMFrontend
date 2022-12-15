@@ -1,21 +1,21 @@
 import { toast } from "react-toastify";
 
-export function customToast(message: string, type: "success" | "error") {
+export function customToast(msg: string, type: "success" | "error") {
   switch (type) {
     case "success":
-      toast.success(message, {
+      toast.success(msg, {
         autoClose: 1000,
         position: toast.POSITION.TOP_RIGHT,
       });
       break;
     case "error":
-      toast.error(message, {
+      toast.error(msg, {
         autoClose: 1000,
         position: toast.POSITION.TOP_RIGHT,
       });
       break;
     default:
-      alert("default");
+      alert("개발자오류");
       break;
   }
 }
