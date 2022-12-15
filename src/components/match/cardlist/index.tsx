@@ -1,4 +1,6 @@
 import styled from "@emotion/styled";
+import { useEffect, useState } from "react";
+import { getMentors } from "../../../apis/getMentor";
 import { CardInformation } from "../../../constance/card";
 import Card from "../card";
 
@@ -9,21 +11,36 @@ interface PropsType {
   gpa: number;
 }
 
+interface MentorType {
+  id: number;
+  name: string;
+  major: string;
+  email: string;
+  introduction: string;
+  language: string;
+  rating: number;
+  jobGroup: string;
+}
+
 const CardList = () => {
+  const [mentors, setMentors] = useState<MentorType[]>();
+  useEffect(() => {
+    getMentors()
+      .then((res) => setMentors(res.data))
+      .catch((err) => console.error(err));
+  }, []);
   return (
-    <>
-      <CardListWrapper>
-        {CardInformation?.map((v: PropsType, i: number) => (
-          <Card
-            key={i}
-            job={v.job}
-            name={v.name}
-            introduce={v.introduce}
-            gpa={v.gpa}
-          />
-        ))}
-      </CardListWrapper>
-    </>
+    <CardListWrapper>
+      {mentors?.map((element: MentorType) => (
+        <Card
+          key={element.id}
+          job={element.major}
+          name={element.name}
+          introduce={element.introduction}
+          gpa={element.rating}
+        />
+      ))}
+    </CardListWrapper>
   );
 };
 
