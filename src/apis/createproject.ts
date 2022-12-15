@@ -2,14 +2,14 @@ import instance from "./axios";
 
 export const createProject = async (
   title: string,
-  hash: string[],
+  hash: string,
   input: string
 ) => {
   await instance.post("/project", {
-    title: "titleex",
-    period: "2022-7-12 ~ 2022-x-xx",
-    content: "contentex",
-    needed: "Frotend",
-    preference: "preferenceex",
+    title: title,
+    period: "프로젝트 안에 기재되어있습니다",
+    content: input,
+    needed: hash,
+    preference: "",
   });
 };
