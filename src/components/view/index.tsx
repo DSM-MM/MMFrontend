@@ -1,12 +1,16 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { getProject, GetProjectType } from "../../apis/getProject";
 import Header from "../common/header";
 import * as S from "./styles";
 
 export const ViewProject = () => {
   const param = useParams();
+  const nav = useNavigate();
   const [information, setInformation] = useState<GetProjectType>();
+  const backPage = () => {
+    nav(-1);
+  };
   useEffect(() => {
     if (param.id)
       getProject(param.id)
@@ -37,6 +41,7 @@ export const ViewProject = () => {
                 ))}
             </S.Text>
             <S.ButtonWrapper>
+              <S.SupportButton onClick={backPage}>뒤로 가기</S.SupportButton>
               <S.SupportButton>지원하기</S.SupportButton>
             </S.ButtonWrapper>
           </S.InnerWrapper>
