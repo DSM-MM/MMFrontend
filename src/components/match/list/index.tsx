@@ -54,22 +54,22 @@ const List = () => {
       <S.FieldWrapper>
         {DevelopList.map((data) => getButton(data))}
       </S.FieldWrapper>
-      <NewAddMento>
-        <S.TopListBackground
-          onClick={(e: React.MouseEvent<HTMLButtonElement>) =>
-            (window.location.href = "/mento/create")
-          }
-          width={10}
-        >
-          멘토 생성
-        </S.TopListBackground>
-      </NewAddMento>
       <S.ListWrapper>
         {content && (
           <S.SelectedContentWrapper>
             {selectComponent[content]}
           </S.SelectedContentWrapper>
         )}
+        <NewAddMento>
+          <S.TopListBackground
+            onClick={(e: React.MouseEvent<HTMLButtonElement>) =>
+              (window.location.href = "/mento/create")
+            }
+            width={10}
+          >
+            멘토 생성
+          </S.TopListBackground>
+        </NewAddMento>
       </S.ListWrapper>
       <CardList />
     </>
