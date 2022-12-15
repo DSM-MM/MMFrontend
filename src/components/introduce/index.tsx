@@ -5,7 +5,7 @@ import MentoCard from "./card";
 import { Link } from "react-router-dom";
 
 const Introduce: React.FC = () => {
-  const { job, name } = useParams();
+  const id = useParams();
   return (
     <>
       <div style={{ display: "flex" }}>
@@ -15,7 +15,7 @@ const Introduce: React.FC = () => {
             <div style={{ marginBottom: "20px" }}>
               <S.IntroduceText>멘토 소개</S.IntroduceText>
             </div>
-            <MentoCard job={job} name={name} />
+            <MentoCard id={id.id}/>
             <S.ButtonWrapper>
               <S.LinkButton>질문하러 가기</S.LinkButton>
               <Link to="/mento">

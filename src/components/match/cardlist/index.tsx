@@ -26,6 +26,7 @@ const CardList = () => {
       {mentors?.map((element: MentorType) => (
         <Card
           key={element.id}
+          id={element.id}
           job={element.major}
           name={element.name}
           introduce={element.introduction}
