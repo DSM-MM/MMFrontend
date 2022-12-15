@@ -22,20 +22,7 @@ const Pencil = () => {
 };
 
 const Profile = () => {
-  const [userState, setUserState] = useState<ProfileType>({
-    id: 0,
-    projects: [],
-    name: "",
-    email: "",
-    password: "",
-    introduction: "",
-    jobGroup: "",
-    language: "",
-    githubLink: "",
-    provider: "",
-    providerId: "",
-    role: "",
-  });
+  const [userState, setUserState] = useState<ProfileType>();
   const [update, setUpdate] = useState<boolean>(false);
   useEffect(() => {
     getProfile()
@@ -73,12 +60,12 @@ const Profile = () => {
             </S._Wrapper>
           </S.ProfilePictureDiv>
           <S.Content>
-            <S.Name>{userState.name}</S.Name>
-            <S.Introduce>{userState.introduction}</S.Introduce>
+            <S.Name>{userState?.name}</S.Name>
+            <S.Introduce>{userState?.introduction}</S.Introduce>
             <S.InfoDiv>
               <S.Info>
                 <S.InfoTitle>Email</S.InfoTitle>
-                <S.InfoContent>{userState.email}</S.InfoContent>
+                <S.InfoContent>{userState?.email}</S.InfoContent>
               </S.Info>
               <S.Info>
                 <S.InfoTitle>비밀번호</S.InfoTitle>
@@ -86,23 +73,23 @@ const Profile = () => {
               </S.Info>
               <S.Info>
                 <S.InfoTitle>평점</S.InfoTitle>
-                <S.InfoContent>{userState.provider}</S.InfoContent>
+                <S.InfoContent>{userState?.provider}</S.InfoContent>
               </S.Info>
               <S.Info>
                 <S.InfoTitle>직군</S.InfoTitle>
-                <S.InfoContent>{userState.jobGroup} Developer</S.InfoContent>
+                <S.InfoContent>{userState?.jobGroup} Developer</S.InfoContent>
               </S.Info>
               <S.Info>
                 <S.InfoTitle>사용언어</S.InfoTitle>
-                <span>{userState.language}</span>
+                <span>{userState?.language}</span>
               </S.Info>
             </S.InfoDiv>
           </S.Content>
           <S.ProjectDiv>
             <S.MyProjects>내 프로젝트</S.MyProjects>
             <S.ProjectList>
-              {userState.projects ? (
-                userState.projects.map((ele: ProjectType) => (
+              {userState?.projects ? (
+                userState?.projects.map((ele: ProjectType) => (
                   <S.Project key={ele.id}>
                     <S.ProjectTitle>{ele.title}</S.ProjectTitle>
                     <S.ParticipationField>
