@@ -66,8 +66,7 @@ export const ButtonWrapper = styled.div`
   width: 100%;
   height: auto;
   margin-top: 20px;
-  display: grid;
-  place-content: center;
+  display: flex;
 `;
 
 export const SupportButton = styled.button`
@@ -75,12 +74,12 @@ export const SupportButton = styled.button`
   height: max-content;
   padding: 8px 20px;
   border-radius: 10px;
+  margin-right: 10px;
   background-color: ${theme.color.maincolor};
   color: ${theme.color.white000};
   cursor: pointer;
   &:hover {
     background-color: ${theme.color.white001};
     color: ${theme.color.black000};
-    border: 1.5px solid ${theme.color.maincolor};
   }
 `;
