@@ -8,7 +8,6 @@ interface Props {
 
 const MentoCard = ({ job, name }: Props) => {
   return (
-    <>
       <S.Card>
         <S.SideBar>
           <S.GrayBar style={{ borderRadius: "5px 0 0 0" }} />
@@ -37,7 +36,6 @@ const MentoCard = ({ job, name }: Props) => {
           <S.BlackBar style={{ borderRadius: "0 5px 0 0" }} />
         </S.SideBarReverse>
       </S.Card>
-    </>
   );
 };
 
