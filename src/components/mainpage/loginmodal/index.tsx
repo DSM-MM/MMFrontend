@@ -24,9 +24,13 @@ interface loginResponseDataProps {
   accessTokenExpireDate: number;
 }
 
+interface ValuesType {
+  email: string;
+  password: string;
+}
+
 const LoginModal = ({ setModal }: PropsType) => {
-  const GoogleURL: string = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${process.env.REACT_APP_GOOGLE_CLIENT_ID}&response_type=token&redirect_uri=http://localhost:3000&scope=https://www.googleapis.com/auth/userinfo.email`;
-  const [values, setValue] = useState<{ email: string; password: string }>({
+  const [values, setValue] = useState<ValuesType>({
     email: "",
     password: "",
   });
@@ -40,7 +44,7 @@ const LoginModal = ({ setModal }: PropsType) => {
       oneLineIntroduce: "",
     });
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
+    const { name, value }: { name: string; value: string } = e.target;
     setValue({ ...values, [name]: value });
   };
   const LoginOnClick = () => {
@@ -198,10 +202,13 @@ const LoginModal = ({ setModal }: PropsType) => {
                 )
                   .then((res) => {
                     console.log(res);
-                    alert("회원가입을 성공하였습니다.");
-                    window.location.reload();
+                    customToast("회원가입에 성공하였습니다.", "success");
+                    setSignUp(true);
                   })
-                  .catch((error) => console.error(error))
+                  .catch((err) => {
+                    console.error(err);
+                    customToast("회원가입에 실패하였습니다.", "error");
+                  })
               }
             >
               회원가입
