@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useEffect, useState } from "react";
 import * as S from "./styles";
 import CardList from "../cardlist";
 import {
@@ -60,7 +60,6 @@ const List = () => {
           </S.SelectedContentWrapper>
         )}
       </S.ListWrapper>
-
       <CardList />
     </>
   );
