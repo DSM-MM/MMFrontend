@@ -6,8 +6,8 @@ import { useEffect, useState } from "react";
 import { getProfile, ProfileType, ProjectType } from "../../apis/profile";
 import { customToast } from "../../util/toast";
 import { setMy, MyType } from "../../apis/setMy";
-import Pencil from "./pencil";
 import { getMyProjectList, MyProjectType } from "../../apis/getMyProjectList";
+import ChangePassword from "./changePassword";
 
 const Profile = () => {
   const [userState, setUserState] = useState<ProfileType>();
@@ -20,6 +20,7 @@ const Profile = () => {
   });
   const [myProject, setMyProject] = useState<MyProjectType>();
   const [update, setUpdate] = useState<boolean>(false);
+  const [modal, setModal] = useState<boolean>(false);
   useEffect(() => {
     getProfile()
       .then((res) => {
@@ -62,8 +63,12 @@ const Profile = () => {
       .then(() => window.location.reload())
       .catch((error) => console.error(error));
   };
+  const changePassword = () => {
+    setModal(true);
+  };
   return (
     <S.Body>
+      {modal && <ChangePassword setModal={setModal} />}
       <Header />
       <S.Wrapper>
         <S.Background>
@@ -147,8 +152,8 @@ const Profile = () => {
                 </S.Info>
                 <S.Info>
                   <S.InfoTitle>비밀번호</S.InfoTitle>
-                  <S.InfoContent>
-                    <Pencil />
+                  <S.InfoContent onClick={changePassword}>
+                    비밀번호 변경
                   </S.InfoContent>
                 </S.Info>
                 <S.Info>
