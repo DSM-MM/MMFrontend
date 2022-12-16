@@ -4,7 +4,7 @@ import styled from "@emotion/styled";
 import { ProfileImage, GithubSvg } from "../../assets";
 import { useEffect, useState } from "react";
 import { getProfile, ProfileType, ProjectType } from "../../apis/profile";
-import { customToast } from "../../util/toast";
+import { customToast } from "../../util/toast/toast";
 import { setMy, MyType } from "../../apis/setMy";
 import { getMyProjectList, MyProjectType } from "../../apis/getMyProjectList";
 import ChangePassword from "./changePassword";

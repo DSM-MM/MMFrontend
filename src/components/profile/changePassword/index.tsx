@@ -5,7 +5,7 @@ import {
   changePasswordFunction,
   PasswordType,
 } from "../../../apis/changePasswordFunction";
-import { customToast } from "../../../util/toast";
+import { customToast } from "../../../util/toast/toast";
 
 interface PropsType {
   setModal: Dispatch<SetStateAction<boolean>>;

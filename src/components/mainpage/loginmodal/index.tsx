@@ -3,7 +3,7 @@ import { login } from "../../../apis/login";
 import { signup } from "../../../apis/signup";
 import { MMMainLogo } from "../../../assets";
 import { Job } from "../../../constance/signup";
-import { customToast } from "../../../util/toast";
+import { customToast } from "../../../util/toast/toast";
 import * as S from "./styles";
 
 interface PropsType {
