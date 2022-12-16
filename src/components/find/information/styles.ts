@@ -44,7 +44,7 @@ export const Text = styled.span`
 export const Tag = styled.div`
   width: 400px;
   display: flex;
-  justify-content: space-around;
+  /* justify-content: space-around; */
 `;
 
 export const TagWrapper = styled.div`
@@ -60,4 +60,5 @@ export const TagWrapper = styled.div`
   line-height: 16px;
   text-align: center;
   color: ${theme.color.white000};
+  margin-right: 10px;
 `;
