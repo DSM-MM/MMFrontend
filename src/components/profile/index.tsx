@@ -7,6 +7,7 @@ import { getProfile, ProfileType, ProjectType } from "../../apis/profile";
 import { customToast } from "../../util/toast";
 import { setMy, MyType } from "../../apis/setMy";
 import Pencil from "./pencil";
+import { getMyProjectList, MyProjectType } from "../../apis/getMyProjectList";
 
 const Profile = () => {
   const [userState, setUserState] = useState<ProfileType>();
@@ -17,6 +18,7 @@ const Profile = () => {
     language: "",
     githubLink: "",
   });
+  const [myProject, setMyProject] = useState<MyProjectType>();
   const [update, setUpdate] = useState<boolean>(false);
   useEffect(() => {
     getProfile()
@@ -27,12 +29,16 @@ const Profile = () => {
         }
       })
       .catch((err) => console.error(err));
+    getMyProjectList()
+      .then((res) => setMyProject(res.data))
+      .catch((err) => console.error(err));
   }, []);
   const logoutOnClick = () => {
     window.localStorage.removeItem("access_token");
     window.localStorage.removeItem("refresh_token");
     window.location.href = "/";
   };
+
   const onChange = (value: string, dir: string) => {
     setChangeState({
       ...changeState,
@@ -184,18 +190,14 @@ const Profile = () => {
           <S.ProjectDiv>
             <S.MyProjects>내 프로젝트</S.MyProjects>
             <S.ProjectList>
-              {userState?.projects ? (
-                userState?.projects.map((ele: ProjectType) => (
-                  <S.Project key={ele.id}>
-                    <S.ProjectTitle>{ele.title}</S.ProjectTitle>
-                    <S.ParticipationField>
-                      참가분야: {ele.needed}
-                    </S.ParticipationField>
-                  </S.Project>
-                ))
-              ) : (
-                <span>프로젝트가 비어있습니다.</span>
-              )}
+              {myProject?.projects.map((ele) => (
+                <S.Project key={ele.id}>
+                  <S.ProjectTitle>{ele.title}</S.ProjectTitle>
+                  <S.ParticipationField>
+                    참가분야: {ele.preference}
+                  </S.ParticipationField>
+                </S.Project>
+              ))}
             </S.ProjectList>
           </S.ProjectDiv>
         </S.Profile>
