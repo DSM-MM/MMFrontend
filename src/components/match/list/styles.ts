@@ -18,7 +18,7 @@ export const FieldWrapper = styled.div`
 `;
 
 export const TopListBackground = styled.button<WidthProps>`
-  width: ${(props) => `${props.width}rem`};
+  width: ${(props: { width: number }) => `${props.width}rem`};
   height: 2rem;
   display: flex;
   justify-content: center;
@@ -31,7 +31,7 @@ export const TopListBackground = styled.button<WidthProps>`
     background-color: #343434;
     color: #ffffff;
   }
-  &:active{
+  &:active {
     background-color: #343434;
   }
 `;
