@@ -13,10 +13,10 @@ const Board = () => {
       <S.Board>
         <SnowFall
           style={{
-            width: "70%",
+            width: "63%",
             height: "30vh",
             marginTop: "5%",
-            marginLeft: "15%",
+            marginLeft: "23%",
           }}
           color={settings.color}
           snowflakeCount={settings.snowflakeCount}
