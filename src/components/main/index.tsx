@@ -13,6 +13,7 @@ const MainWrapper = styled.div`
 const Side = styled.div`
   width: 100%;
   height: auto;
+  margin-left: 10%;
 `;
 
 const Main = () => {

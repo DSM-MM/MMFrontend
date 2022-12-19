@@ -80,7 +80,6 @@ const List = () => {
     </>
   );
 };
-
 const NewAddMento = styled.div`
   width: 60%;
 `;

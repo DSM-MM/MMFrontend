@@ -5,6 +5,7 @@ import { useState } from "react";
 import theme from "../../styles/theme";
 import { createMento, MentoType } from "../../apis/createMento";
 import { useNavigate } from "react-router-dom";
+import { customToast } from "../../util/toast/toast";
 
 const CreateMento = () => {
   const [mento, setMento] = useState<MentoType>({
@@ -22,10 +23,16 @@ const CreateMento = () => {
       [dic]: value,
     });
   };
+  const onSubmitCheck = (e: React.FormEvent<HTMLButtonElement>): void => {
+    e.preventDefault();
+    if (mento) {
+      createMento(mento)
+        .then((res) => console.log(res))
+        .catch((err) => console.error(err));
+    }
+  };
   const onSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
-    createMento(mento)
-      .then((res) => console.log(res))
-      .catch((err) => console.error(err));
+    e.preventDefault();
   };
 
   return (
@@ -96,7 +103,7 @@ const CreateMento = () => {
             <S.BlackBar style={{ borderRadius: "0 5px 0 0" }} />
           </S.SideBarReverse>
         </S.Card>
-        <_SubmitButton onClick={onSubmit}>제출하기</_SubmitButton>
+        <_SubmitButton onSubmit={onSubmitCheck}>제출하기</_SubmitButton>
       </_InnerWrapper>
     </_Wrapper>
   );

@@ -12,6 +12,7 @@ const Match = () => {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
+            marginLeft: "10%",
           }}
         >
           <List />
