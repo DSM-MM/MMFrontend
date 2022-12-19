@@ -1,8 +1,22 @@
 import * as S from "./styles";
 import { Time, Field } from "../../../constance/field";
 import { Link } from "react-router-dom";
+import SearchInput from "../../common/search";
 
-const TopList = () => {
+interface PropsType {
+  jobFilter: string;
+  setJobFilter: (filter: string) => void;
+}
+
+const TopList = ({ jobFilter, setJobFilter }: PropsType) => {
+  const onClickTimeButton = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    alert("아직 구현 중 입니다.");
+  };
+  const onClickJobButton = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const { name } = e.target as any;
+    setJobFilter(name);
+  };
   return (
     <>
       <S.FieldWrapper>
@@ -10,17 +24,26 @@ const TopList = () => {
         <S.Flex>
           <S.SubHeading>분야</S.SubHeading>
           {Field.map((value: { id: number; field: string }) => (
-            <S.FieldDiv key={value.id}>{value.field}</S.FieldDiv>
+            <S.FieldDiv
+              onClick={onClickJobButton}
+              name={value.field}
+              key={value.id}
+            >
+              {value.field}
+            </S.FieldDiv>
           ))}
         </S.Flex>
         <S.Flex>
           <S.SubHeading>기간</S.SubHeading>
           {Time.map((value: { id: number; len: string }) => (
-            <S.FieldDiv key={value.id}>{value.len}</S.FieldDiv>
+            <S.FieldDiv onClick={onClickTimeButton} key={value.id}>
+              {value.len}
+            </S.FieldDiv>
           ))}
         </S.Flex>
       </S.FieldWrapper>
       <S.ButtonWrapper>
+        <SearchInput />
         <Link to="/find/create">
           <S.CreateButton>프로젝트 생성</S.CreateButton>
         </Link>

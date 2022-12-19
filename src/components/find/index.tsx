@@ -20,6 +20,7 @@ interface ListType {
 
 const FindProject = () => {
   const [list, setList] = useState<ListType[]>();
+  const [jobFilter, setJobFilter] = useState<string>("");
   useEffect(() => {
     callProject()
       .then((res: AxiosResponse<any, any>) => {
@@ -31,17 +32,19 @@ const FindProject = () => {
     <S.Flex>
       <Header />
       <S.Wrapper>
-        <TopList />
+        <TopList jobFilter={jobFilter} setJobFilter={setJobFilter} />
         <S.ListWrapper>
-          {list?.map((element: ListType) => (
-            <Link to={`/find/${element.id}`} key={element.id}>
-              <Information
-                title={element.title}
-                time={element.period}
-                tag={element.needed}
-              />
-            </Link>
-          ))}
+          {list?.map((element: ListType) => {
+            return (
+              <Link to={`/find/${element.id}`} key={element.id}>
+                <Information
+                  title={element.title}
+                  time={element.period}
+                  tag={element.needed}
+                />
+              </Link>
+            );
+          })}
         </S.ListWrapper>
       </S.Wrapper>
     </S.Flex>
