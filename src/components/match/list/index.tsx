@@ -75,7 +75,6 @@ const List = () => {
           </S.TopListBackground>
         </NewAddMento>
       </S.ListWrapper>
-
       <CardList />
     </>
   );
