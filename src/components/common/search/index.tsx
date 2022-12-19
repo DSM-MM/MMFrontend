@@ -8,6 +8,7 @@ const InputWrapper = styled.div`
   border-radius: 1rem;
   border: 1px solid ${theme.color.gray002};
   display: flex;
+  margin-right: 30px;
   align-items: center;
   input {
     border: none;
@@ -20,7 +21,6 @@ const InputWrapper = styled.div`
 
 const SearchInput = () => {
   return (
-    <>
       <InputWrapper>
         <img
           src={SearchBtn}
@@ -33,7 +33,6 @@ const SearchInput = () => {
           autoComplete="off"
         />
       </InputWrapper>
-    </>
   );
 };
 
