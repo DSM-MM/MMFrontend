@@ -2,7 +2,7 @@ import Header from "../common/header";
 import * as S from "./styles";
 import styled from "@emotion/styled";
 import { ProfileImage, GithubSvg } from "../../assets";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { getProfile, ProfileType } from "../../apis/profile";
 import { customToast } from "../../util/toast/toast";
 import { setMy, MyType } from "../../apis/setMy";
@@ -34,6 +34,13 @@ const Profile = () => {
       .then((res) => setMyProject(res.data))
       .catch((err) => console.error(err));
   }, [update]);
+  useEffect(() => {
+    if (modal) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+  }, [modal]);
   const logoutOnClick = () => {
     window.localStorage.removeItem("access_token");
     window.localStorage.removeItem("refresh_token");
@@ -63,6 +70,7 @@ const Profile = () => {
       .then(() => window.location.reload())
       .catch((error) => console.error(error));
   };
+  const onMouseOver = () => {};
   const changePassword = () => {
     setModal(true);
   };
@@ -139,20 +147,11 @@ const Profile = () => {
               </S.Introduce>
               <S.InfoDiv>
                 <S.Info>
-                  <S.InfoTitle>Email</S.InfoTitle>
-                  <S.InfoContent>
-                    <_Input
-                      value={changeState.email}
-                      onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                        onChange(e.target.value, "email")
-                      }
-                      placeholder="이메일을 입력하세요."
-                    />
-                  </S.InfoContent>
-                </S.Info>
-                <S.Info>
                   <S.InfoTitle>비밀번호</S.InfoTitle>
-                  <S.InfoContent onClick={changePassword}>
+                  <S.InfoContent
+                    onMouseOver={onMouseOver}
+                    onClick={changePassword}
+                  >
                     비밀번호 변경
                   </S.InfoContent>
                 </S.Info>
