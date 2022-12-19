@@ -38,7 +38,7 @@ const CardList = () => {
 };
 
 const CardListWrapper = styled.div`
-  width: 80%;
+  width: 60%;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
