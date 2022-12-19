@@ -10,18 +10,18 @@ interface PropsType {
   gpa: number;
 }
 
-const Card = ({ id ,job, name, introduce, gpa }: PropsType) => (
-    <Link to={`/mento/${id}`}>
-      <CardBackground>
-        <Job>{job}</Job>
-        <Profile>
-          <img src={ProfileLogo} alt="ProfileLogo" />
-        </Profile>
-        <Text>{name}</Text>
-        <Text>"{introduce}"</Text>
-        <GpaText>평점: {gpa}</GpaText>
-      </CardBackground>
-    </Link>
+const Card = ({ id, job, name, introduce, gpa }: PropsType) => (
+  <Link to={`/mento/${id}`}>
+    <CardBackground>
+      <Job>{job}</Job>
+      <Profile>
+        <img src={ProfileLogo} alt="ProfileLogo" />
+      </Profile>
+      <Text>{name}</Text>
+      <Text>"{introduce}"</Text>
+      <GpaText>평점: {gpa}</GpaText>
+    </CardBackground>
+  </Link>
 );
 
 const CardBackground = styled.div`
@@ -37,6 +37,27 @@ const CardBackground = styled.div`
   margin-right: 10px;
   margin-bottom: 10px;
   cursor: pointer;
+  @keyframes sizeup {
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(1.05);
+    }
+  }
+  @keyframes sizedown {
+    0% {
+      transform: scale(1.05);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  animation: sizedown 0.4s;
+  :hover {
+    animation: sizeup 0.4s;
+    animation-fill-mode: forwards;
+  }
 `;
 
 const Job = styled.span`
