@@ -15,7 +15,12 @@ const TopList = ({ jobFilter, setJobFilter }: PropsType) => {
   };
   const onClickJobButton = (e: React.MouseEvent<HTMLButtonElement>) => {
     const { name } = e.target as any;
+    if (name === jobFilter) {
+      setJobFilter("");
+      return;
+    }
     setJobFilter(name);
+    console.log(jobFilter);
   };
   return (
     <>
