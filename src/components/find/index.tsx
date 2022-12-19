@@ -6,6 +6,7 @@ import * as S from "./styles";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { callProject } from "../../apis/call";
+import { AxiosError, AxiosResponse } from "axios";
 
 interface ListType {
   id: number;
@@ -21,10 +22,10 @@ const FindProject = () => {
   const [list, setList] = useState<ListType[]>();
   useEffect(() => {
     callProject()
-      .then((res) => {
+      .then((res: AxiosResponse<any, any>) => {
         setList(res.data);
       })
-      .catch((err) => console.error(err));
+      .catch((err: AxiosError) => console.error(err));
   }, []);
   return (
     <S.Flex>
