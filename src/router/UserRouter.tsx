@@ -24,7 +24,7 @@ const UserRouter = () => {
       <Route path="/profile" element={<Profile />} />
       <Route path="/find/create" element={<CreateProject />} />
       <Route path="/find/:id" element={<ViewProject />} />
-      <Route path='/mento/create' element={<CreateMento />} />
+      <Route path="/mento/create" element={<CreateMento />} />
     </Routes>
   );
 };
