@@ -24,25 +24,27 @@ const List = () => {
     third: <NumberList list={AppDevelop} />,
   };
 
-  const handleClickButton = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const handleClickButton = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
     const { name } = e.target as any;
-    setContent(name);
+    if (name === content) {
+      setContent(undefined);
+    } else setContent(name);
   };
 
   const getButton = (data: PropsType) => {
     return (
-      <>
-        <S.TopListBackground
-          key={data.id}
-          name={data.name}
-          onClick={(e) => {
-            handleClickButton(e);
-          }}
-          width={data.id === 1 ? 10 : 3}
-        >
-          <span>{data.text}</span>
-        </S.TopListBackground>
-      </>
+      <S.TopListBackground
+        key={data.id}
+        name={data.name}
+        onClick={(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+          handleClickButton(e);
+        }}
+        width={data.id === 1 ? 10 : 3}
+      >
+        {data.text}
+      </S.TopListBackground>
     );
   };
 
@@ -52,7 +54,7 @@ const List = () => {
         <S.MentoTitle>멘토 목록</S.MentoTitle>
       </div>
       <S.FieldWrapper>
-        {DevelopList.map((data) => getButton(data))}
+        {DevelopList.map((data: PropsType) => getButton(data))}
       </S.FieldWrapper>
       <S.ListWrapper>
         {content && (
@@ -60,6 +62,8 @@ const List = () => {
             {selectComponent[content]}
           </S.SelectedContentWrapper>
         )}
+      </S.ListWrapper>
+      <S.ListWrapper>
         <NewAddMento>
           <S.TopListBackground
             onClick={(e: React.MouseEvent<HTMLButtonElement>) =>
@@ -71,6 +75,7 @@ const List = () => {
           </S.TopListBackground>
         </NewAddMento>
       </S.ListWrapper>
+
       <CardList />
     </>
   );
