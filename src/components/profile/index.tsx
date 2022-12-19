@@ -165,8 +165,7 @@ const Profile = () => {
                         onChange(e.target.value, "jobGroup")
                       }
                       placeholder="직군을 입력하세요."
-                    />{" "}
-                    Developer
+                    />
                   </S.InfoContent>
                 </S.Info>
                 <S.Info>
