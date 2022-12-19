@@ -3,7 +3,7 @@ import * as S from "./styles";
 import styled from "@emotion/styled";
 import { ProfileImage, GithubSvg } from "../../assets";
 import { useEffect, useState } from "react";
-import { getProfile, ProfileType, ProjectType } from "../../apis/profile";
+import { getProfile, ProfileType } from "../../apis/profile";
 import { customToast } from "../../util/toast/toast";
 import { setMy, MyType } from "../../apis/setMy";
 import { getMyProjectList, MyProjectType } from "../../apis/getMyProjectList";
@@ -33,7 +33,7 @@ const Profile = () => {
     getMyProjectList()
       .then((res) => setMyProject(res.data))
       .catch((err) => console.error(err));
-  }, []);
+  }, [update]);
   const logoutOnClick = () => {
     window.localStorage.removeItem("access_token");
     window.localStorage.removeItem("refresh_token");
