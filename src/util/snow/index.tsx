@@ -7,7 +7,7 @@ export interface SnowFallType extends SnowfallProps {
   setSnowflakeCount: (count: number) => void;
 }
 
-export interface PropsType {
+interface PropsType {
   children: React.ReactNode;
 }
 
