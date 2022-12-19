@@ -8,10 +8,10 @@ export const Title = styled.span`
 `;
 
 export const SubHeading = styled.span`
+  padding-top: 5px;
   font-weight: 400;
   font-size: 20px;
   line-height: 27px;
-  padding-top: 5px;
   margin: 0 20px 10px 0;
 `;
 
@@ -27,10 +27,12 @@ export const FieldDiv = styled.button`
   place-content: center;
   background-color: ${theme.color.white000};
   color: ${theme.color.gray003};
+  font-weight: 600;
   &:hover {
     background-color: ${theme.color.maincolor};
     color: ${theme.color.white000};
   }
+  margin-right: 10px;
 `;
 
 export const FieldWrapper = styled.div`

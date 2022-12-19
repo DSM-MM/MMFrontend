@@ -8,13 +8,14 @@ export const BoardWrapper = styled.div`
 `;
 
 export const Board = styled.div`
-  width: 70%;
+  width: 65%;
   height: 30vh;
   background: #343434;
   border-radius: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 0 2.5%;
   margin-top: 5%;
   color: #ffffff;
   .title {
