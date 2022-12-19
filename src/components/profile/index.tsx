@@ -67,7 +67,10 @@ const Profile = () => {
       return;
     }
     setMy(changeState)
-      .then(() => window.location.reload())
+      .then(() => {
+        setUpdate(false);
+        customToast("성공!", "success");
+      })
       .catch((error) => console.error(error));
   };
   const onMouseOver = () => {};
