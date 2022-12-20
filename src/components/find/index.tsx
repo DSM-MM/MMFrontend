@@ -35,15 +35,16 @@ const FindProject = () => {
         <TopList jobFilter={jobFilter} setJobFilter={setJobFilter} />
         <S.ListWrapper>
           {list?.map((element: ListType) => {
-            return (
-              <Link to={`/find/${element.id}`} key={element.id}>
-                <Information
-                  title={element.title}
-                  time={element.period}
-                  tag={element.needed}
-                />
-              </Link>
-            );
+            if (jobFilter === "")
+              return (
+                <Link to={`/find/${element.id}`} key={element.id}>
+                  <Information
+                    title={element.title}
+                    time={element.period}
+                    tag={element.needed}
+                  />
+                </Link>
+              );
           })}
         </S.ListWrapper>
       </S.Wrapper>
