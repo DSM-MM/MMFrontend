@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import theme from "../../styles/theme";
+import { Link } from "react-scroll";
 
 export const Wrapper = styled.div`
   width: 100%;
@@ -54,7 +55,7 @@ export const ArrowImg = styled.img`
   cursor: pointer;
 `;
 
-export const ArrowWrapper = styled.div`
+export const ArrowWrapper = styled(Link)`
   height: 100%;
   display: flex;
   flex-direction: column;
