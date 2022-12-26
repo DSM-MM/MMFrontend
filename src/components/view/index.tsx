@@ -27,7 +27,11 @@ export const ViewProject = () => {
               <S.Title>{information?.title}</S.Title>
               <S.Text>{information?.period}</S.Text>
               <S.TagWrapper>
-                <S.Tag>{information?.needed}</S.Tag>
+                {information?.needed
+                  .split(" ")
+                  .map((element: string, index: number) => (
+                    <S.Tag key={index}>{element}</S.Tag>
+                  ))}
               </S.TagWrapper>
             </div>
             <S.Text>
