@@ -48,27 +48,32 @@ const LoginModal = ({ setModal }: PropsType) => {
     setValue({ ...values, [name]: value });
   };
   const LoginOnClick = () => {
-    login(values)
-      .then((res) => {
-        const {
-          accessToken,
-          refreshToken,
-          accessTokenExpireDate,
-        }: loginResponseDataProps = res.data;
-        const expires: Date = new Date(Date.now() + accessTokenExpireDate);
-        window.localStorage.setItem("access_token", accessToken);
-        window.localStorage.setItem("refresh_token", refreshToken);
-        //새로고침
-        window.location.href = "/main";
-      })
-      .catch((err) => {
-        const status: number = err.response.status.status;
-        if (status === 404) {
-          alert("이메일이나 비밀번호를 한번 더 확인하세요");
-          return;
-        }
-        customToast("로그인에 실패하였습니다", "error");
-      });
+    if (values.email && values.password) {
+      login(values)
+        .then((res) => {
+          const {
+            accessToken,
+            refreshToken,
+            accessTokenExpireDate,
+          }: loginResponseDataProps = res.data;
+          const expires: Date = new Date(Date.now() + accessTokenExpireDate);
+          window.localStorage.setItem("access_token", accessToken);
+          window.localStorage.setItem("refresh_token", refreshToken);
+          //새로고침
+          window.location.href = "/main";
+        })
+        .catch((err) => {
+          const status: number = err.response.status.status;
+          if (status === 404) {
+            alert("이메일이나 비밀번호를 한번 더 확인하세요");
+            return;
+          }
+          customToast("로그인에 실패하였습니다", "error");
+        });
+    } else {
+      console.log("아무것도 입력되어있지 않음");
+      customToast("아이디 또는 비밀번호가 입력되어있지 않습니다.", "error");
+    }
   };
 
   return (
