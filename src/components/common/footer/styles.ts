@@ -65,6 +65,9 @@ export const DeveloperWrapper = styled.div`
     margin-right: 20px;
     a {
       margin-bottom: 10px;
+      :hover{
+        text-decoration: underline;
+      }
     }
   }
   .title {
