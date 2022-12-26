@@ -18,7 +18,10 @@ const CardList = () => {
   const [mentors, setMentors] = useState<MentorType[]>();
   useEffect(() => {
     getMentors()
-      .then((res) => setMentors(res.data))
+      .then((res) => {
+        console.log(res);
+        setMentors(res.data);
+      })
       .catch((err) => console.error(err));
   }, []);
   return (
