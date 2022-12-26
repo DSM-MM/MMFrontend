@@ -21,6 +21,7 @@ interface ListType {
 const FindProject = () => {
   const [list, setList] = useState<ListType[]>();
   const [jobFilter, setJobFilter] = useState<string>("");
+  const [searchValue, setSearchValue] = useState<string>("");
   useEffect(() => {
     callProject()
       .then((res: AxiosResponse<any, any>) => {
@@ -32,7 +33,7 @@ const FindProject = () => {
     <S.Flex>
       <Header />
       <S.Wrapper>
-        <TopList jobFilter={jobFilter} setJobFilter={setJobFilter} />
+        <TopList jobFilter={jobFilter} setJobFilter={setJobFilter} searchValue={searchValue} setSearchValue={setSearchValue} />
         <S.ListWrapper>
           {list?.map((element: ListType) => {
             if (jobFilter === "")

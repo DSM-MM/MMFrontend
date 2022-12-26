@@ -6,9 +6,11 @@ import SearchInput from "../../common/search";
 interface PropsType {
   jobFilter: string;
   setJobFilter: (filter: string) => void;
+  searchValue: string;
+  setSearchValue: (searchValue: string) => void;
 }
 
-const TopList = ({ jobFilter, setJobFilter }: PropsType) => {
+const TopList = ({ jobFilter, setJobFilter, searchValue, setSearchValue }: PropsType) => {
   const onClickTimeButton = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     alert("아직 구현 중 입니다.");
@@ -48,7 +50,7 @@ const TopList = ({ jobFilter, setJobFilter }: PropsType) => {
         </S.Flex>
       </S.FieldWrapper>
       <S.ButtonWrapper>
-        <SearchInput />
+        <SearchInput searchValue={searchValue} setSearchValue={setSearchValue} />
         <Link to="/find/create">
           <S.CreateButton>프로젝트 생성</S.CreateButton>
         </Link>
