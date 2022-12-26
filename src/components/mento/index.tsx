@@ -27,7 +27,10 @@ const CreateMento = () => {
     e.preventDefault();
     if (mento) {
       createMento(mento)
-        .then((res) => console.log(res))
+        .then((res) => {
+          console.log(res);
+          window.location.href = "/mento";
+        })
         .catch((err) => console.error(err));
     }
   };
@@ -103,7 +106,7 @@ const CreateMento = () => {
             <S.BlackBar style={{ borderRadius: "0 5px 0 0" }} />
           </S.SideBarReverse>
         </S.Card>
-        <_SubmitButton onSubmit={onSubmitCheck}>제출하기</_SubmitButton>
+        <_SubmitButton onClick={onSubmitCheck}>제출하기</_SubmitButton>
       </_InnerWrapper>
     </_Wrapper>
   );
@@ -164,7 +167,7 @@ const _Wrapper = styled.div`
   height: 100%;
 `;
 
-const _InnerWrapper = styled.form`
+const _InnerWrapper = styled.div`
   height: 100vh;
   margin-left: 9.6%;
   display: flex;
