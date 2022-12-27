@@ -20,6 +20,7 @@ export { default as Menu3 } from "./image/menu_picture_3.svg";
 export { default as ProfileImage } from "./image/mypage_profile_img.svg";
 export { default as GithubSvg } from "./image/github.svg";
 export { default as Eyes } from "./image/eye.svg";
+export { default as NotEyes } from "./image/notEyes.svg";
 // .svg
 
 export { default as GoogleOAuth } from "./image/Google.png";
