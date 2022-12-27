@@ -36,6 +36,7 @@ const LoginModal = ({ setModal }: PropsType) => {
   });
   const [radio, setRadio] = useState<string>("Frontend");
   const [show, setShow] = useState<boolean>(false);
+  const [signUpShow, setSignUpShow] = useState<boolean>(false);
   const [signUp, setSignUp] = useState<boolean>(true);
   const [signUpInformation, setSignUpInformation] =
     useState<SignUpInformationProps>({
@@ -79,6 +80,9 @@ const LoginModal = ({ setModal }: PropsType) => {
 
   const showPassword = () => {
     setShow(!show);
+  };
+  const showPasswordInSignUp = () => {
+    setSignUpShow(!signUpShow);
   };
 
   return (
@@ -163,7 +167,7 @@ const LoginModal = ({ setModal }: PropsType) => {
               <S.InputWrapper>
                 <input
                   autoComplete="off"
-                  type="password"
+                  type={signUpShow ? "text" : "password"}
                   value={signUpInformation.password}
                   placeholder="비밀번호를 입력하세요."
                   onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
@@ -172,6 +176,11 @@ const LoginModal = ({ setModal }: PropsType) => {
                       password: e.target.value,
                     }))
                   }
+                />
+                <img
+                  src={signUpShow ? NotEyes : Eyes}
+                  onClick={showPasswordInSignUp}
+                  alt="비밀번호"
                 />
               </S.InputWrapper>
               <S.InputWrapper>
