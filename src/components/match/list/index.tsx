@@ -55,7 +55,7 @@ const List = () => {
             createMento(request).then((response) => {
               console.log(response.data);
               customToast("성공적으로 추가되었습니다.", "success");
-            })
+            });
           } else {
             customToast("취소하셨습니다.", "error");
             console.log("취소");
