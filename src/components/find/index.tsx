@@ -33,7 +33,12 @@ const FindProject = () => {
     <S.Flex>
       <Header />
       <S.Wrapper>
-        <TopList jobFilter={jobFilter} setJobFilter={setJobFilter} searchValue={searchValue} setSearchValue={setSearchValue} />
+        <TopList
+          jobFilter={jobFilter}
+          setJobFilter={setJobFilter}
+          searchValue={searchValue}
+          setSearchValue={setSearchValue}
+        />
         <S.ListWrapper>
           {list?.map((element: ListType) => {
             if (jobFilter === "")
