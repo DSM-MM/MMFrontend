@@ -29,7 +29,7 @@ const CreateProject = () => {
     }
   };
   const createOnClick = () => {
-    createProject(title, hash[0], input)
+    createProject(title, hash.join(" "), input)
       .then((res) => {
         nav(-1);
         console.log(res);
