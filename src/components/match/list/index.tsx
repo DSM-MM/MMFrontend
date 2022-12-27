@@ -9,6 +9,9 @@ import {
   AppDevelop,
 } from "../../../constance/filterList";
 import NumberList from "./number";
+import { getProfile } from "../../../apis/profile";
+import { createMento } from "../../../apis/createMento";
+import { customToast } from "../../../util/toast/toast";
 
 interface PropsType {
   id: number;
@@ -31,6 +34,35 @@ const List = () => {
     if (name === content) {
       setContent(undefined);
     } else setContent(name);
+  };
+
+  const createMentoFunction = (e: React.MouseEvent<HTMLButtonElement>) => {
+    // window.location.href = "/mento/create";
+    getProfile()
+      .then((res) => {
+        console.log(res);
+        const response = res?.data;
+        if (response) {
+          const request = {
+            name: response.nickName,
+            major: response.jobGroup,
+            email: response.email,
+            introduction: response.introduction,
+            language: response.language,
+            jobGroup: "NULL",
+          };
+          if (window.confirm("멘토 추가하시겠습니까?")) {
+            createMento(request).then((response) => {
+              console.log(response.data);
+              customToast("성공적으로 추가되었습니다.", "success");
+            })
+          } else {
+            customToast("취소하셨습니다.", "error");
+            console.log("취소");
+          }
+        }
+      })
+      .catch((err) => console.error(err));
   };
 
   const getButton = (data: PropsType) => {
@@ -65,12 +97,7 @@ const List = () => {
       </S.ListWrapper>
       <S.ListWrapper>
         <NewAddMento>
-          <S.TopListBackground
-            onClick={(e: React.MouseEvent<HTMLButtonElement>) =>
-              (window.location.href = "/mento/create")
-            }
-            width={10}
-          >
+          <S.TopListBackground onClick={createMentoFunction} width={10}>
             멘토 생성
           </S.TopListBackground>
         </NewAddMento>
