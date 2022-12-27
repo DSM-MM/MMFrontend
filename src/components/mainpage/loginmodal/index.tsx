@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { login } from "../../../apis/login";
 import { signup } from "../../../apis/signup";
-import { MMMainLogo } from "../../../assets";
+import { MMMainLogo, Eyes, NotEyes } from "../../../assets";
 import { Job } from "../../../constance/signup";
 import { customToast } from "../../../util/toast/toast";
 import * as S from "./styles";
@@ -35,6 +35,7 @@ const LoginModal = ({ setModal }: PropsType) => {
     password: "",
   });
   const [radio, setRadio] = useState<string>("Frontend");
+  const [show, setShow] = useState<boolean>(false);
   const [signUp, setSignUp] = useState<boolean>(true);
   const [signUpInformation, setSignUpInformation] =
     useState<SignUpInformationProps>({
@@ -76,6 +77,10 @@ const LoginModal = ({ setModal }: PropsType) => {
     }
   };
 
+  const showPassword = () => {
+    setShow(!show);
+  };
+
   return (
     <S.ModalBackground onClick={() => setModal(false)}>
       <S.ModalItem
@@ -99,11 +104,16 @@ const LoginModal = ({ setModal }: PropsType) => {
               <S.InputWrapper>
                 <input
                   name="password"
-                  type="password"
+                  type={show ? "text" : "password"}
                   autoComplete="off"
                   placeholder="비밀번호를 입력해주세요."
                   value={values.password}
                   onChange={onChange}
+                />
+                <img
+                  src={show ? NotEyes : Eyes}
+                  onClick={showPassword}
+                  alt="비밀번호"
                 />
               </S.InputWrapper>
               <S.LoginListBottom>
