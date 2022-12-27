@@ -10,10 +10,11 @@ import { customToast } from "../../util/toast/toast";
 const Introduce: React.FC = () => {
   const id = useParams().id;
   const evaluate = (e: React.MouseEvent<HTMLButtonElement>) => {
-    const evaluateValue = window.prompt("평점을 입력하세요.(0 ~ 5)");
+    const evaluateValue: string | null =
+      window.prompt("평점을 입력하세요.(0 ~ 5)");
     const number = Number(evaluateValue);
     e.preventDefault();
-    if (number > 5) {
+    if (number > 5 || number === null) {
       customToast("값을 잘못 입력하셨습니다.", "error");
       return;
     } else {
