@@ -5,14 +5,18 @@ interface PropsType {
 }
 
 const NumberList: React.FC<PropsType> = ({ list }: PropsType) => (
-  <>
+  <_Wrapper>
     {list.map((value: string, index: number) => (
       <Btn key={index}>
         <span>{value}</span>
       </Btn>
     ))}
-  </>
+  </_Wrapper>
 );
+
+const _Wrapper = styled.div`
+  width: 100%;
+`;
 
 const Btn = styled.button`
   margin-right: 30px;
