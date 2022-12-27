@@ -44,8 +44,14 @@ export const InputWrapper = styled.div`
   align-items: center;
   padding: 0 20px;
   & > input {
-    width: 310px;
+    width: 250px;
     background-color: transparent;
+  }
+  > img {
+    width: 15px;
+    height: 15px;
+    margin-left: 30px;
+    cursor: pointer;
   }
 `;
 
