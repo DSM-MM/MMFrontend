@@ -14,7 +14,11 @@ interface MentorType {
   jobGroup: string;
 }
 
-const CardList = () => {
+interface PropsType {
+  state: number;
+}
+
+const CardList = ({ state }: PropsType) => {
   const [mentors, setMentors] = useState<MentorType[]>();
   useEffect(() => {
     getMentors()
@@ -23,7 +27,7 @@ const CardList = () => {
         setMentors(res.data);
       })
       .catch((err) => console.error(err));
-  }, []);
+  }, [state]);
   return (
     <CardListWrapper>
       {mentors?.map((element: MentorType) => (

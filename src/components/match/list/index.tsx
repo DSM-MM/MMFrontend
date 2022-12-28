@@ -21,6 +21,7 @@ interface PropsType {
 
 const List = () => {
   const [content, setContent] = useState();
+  const [state, setState] = useState<number>(0);
   const selectComponent = {
     first: <NumberList list={ProgrammingDevelop} />,
     second: <NumberList list={WebDevelop} />,
@@ -55,6 +56,7 @@ const List = () => {
             createMento(request).then((response) => {
               console.log(response.data);
               customToast("성공적으로 추가되었습니다.", "success");
+              setState(state + 1);
             });
           } else {
             customToast("취소하셨습니다.", "error");
@@ -102,7 +104,7 @@ const List = () => {
           </S.TopListBackground>
         </NewAddMento>
       </S.ListWrapper>
-      <CardList />
+      <CardList state={state} />
     </>
   );
 };
