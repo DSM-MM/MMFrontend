@@ -69,7 +69,7 @@ const Profile = () => {
     setMy(changeState)
       .then(() => {
         setUpdate(false);
-        customToast("성공!", "success");
+        customToast("변경 성공!", "success");
       })
       .catch((error) => console.error(error));
   };
