@@ -8,6 +8,9 @@ const Footer = () => {
       <S.FooterContainer>
         <S.ImgContainer>
           <img src={MMMainLogo} alt="Footer Logo Icon" />
+          <div>
+            <span>DSM-MM</span>
+          </div>
         </S.ImgContainer>
         <S.DeveloperPersonWrapper>
           <div>
