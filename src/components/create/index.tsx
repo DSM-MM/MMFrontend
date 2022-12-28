@@ -31,8 +31,9 @@ const CreateProject = () => {
   const createOnClick = () => {
     createProject(title, hash.join(" "), input)
       .then((res) => {
-        nav(-1);
         console.log(res);
+        
+        nav(-1);
       })
       .catch((err) => console.error(err));
   };
