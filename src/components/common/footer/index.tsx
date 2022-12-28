@@ -21,46 +21,28 @@ const Footer = () => {
     { id: 2, name: "박세연" },
   ];
   return (
-    <>
-      <S.FooterContainer>
-        <S.ImgContainer>
-          <img src={MMMainLogo} alt="Footer Logo Icon" />
-          <div>
-            <span>DSM-MM</span>
-          </div>
-        </S.ImgContainer>
-        <S.DeveloperPersonWrapper>
-          <div>
-            <S.GithubWrapper>
-              <div className="github" style={{ marginBottom: "15px" }}>
-                <a href={githubSite}>
-                  <img src={GithubLogo} alt="Github Logo Icon" />
-                </a>
-                <a href={githubSite}>
-                  <span
-                    style={{
-                      color: "#FFFFFF",
-                      fontWeight: "400",
-                      fontSize: "1rem",
-                      lineHeight: "14px",
-                    }}
-                  >
-                    DSM-MM
-                  </span>
-                </a>
-              </div>
-              <span style={{ fontWeight: "400", lineHeight: "14px" }}>
-                ⓒ DSM 2022 UP 2rd Grade Students.
-              </span>
-            </S.GithubWrapper>
-          </div>
-          <div>
-            <S.DeveloperWrapper>
-              <div className="developer">
-                <span className="title">Frontend</span>
-                <a
-                  href="https://github.com/kimkh05"
-                  style={{ color: "#FFFFFF" }}
+    <S.FooterContainer>
+      <S.ImgContainer>
+        <img src={MMMainLogo} alt="Footer Logo Icon" />
+        <div>
+          <span>DSM-MM</span>
+        </div>
+      </S.ImgContainer>
+      <S.DeveloperPersonWrapper>
+        <div>
+          <S.GithubWrapper>
+            <div className="github" style={{ marginBottom: "15px" }}>
+              <a href={githubSite}>
+                <img src={GithubLogo} alt="Github Logo Icon" />
+              </a>
+              <a href={githubSite}>
+                <span
+                  style={{
+                    color: "#FFFFFF",
+                    fontWeight: "400",
+                    fontSize: "1rem",
+                    lineHeight: "14px",
+                  }}
                 >
                   DSM-MM
                 </span>
