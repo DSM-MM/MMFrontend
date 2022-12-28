@@ -6,28 +6,36 @@ import {
   FindProject,
   MMMainLogo,
 } from "../../../assets";
+import styled from "@emotion/styled";
 
-const Header = () => {
+const Header: React.FC = () => {
   return (
-    <>
-      <S.HeaderWrapper>
-        <S.MenuWrapper>
-          <Link className="profile" to="/profile">
-            <img src={ProfileLogo} alt="Profile Logo" />
-          </Link>
-          <Link className="menu" to="/mento">
-            <img src={MentoMatch} alt="Mento Match Logo" />
-          </Link>
-          <Link className="menu" to="/find">
-            <img src={FindProject} alt="Find" />
-          </Link>
-        </S.MenuWrapper>
-        <Link className="main" to="/main">
-          <img className="mainLogo" src={MMMainLogo} alt="MM Main Logo" />
+    <S.HeaderWrapper>
+      <S.MenuWrapper>
+        <Link className="profile" to="/profile">
+          <img src={ProfileLogo} alt="Profile Logo" />
         </Link>
-      </S.HeaderWrapper>
-    </>
+        <_Link to="/mento">
+          <img src={MentoMatch} alt="Mento Match Logo" />
+        </_Link>
+        <Link to="/find">
+          <img src={FindProject} alt="Find" />
+        </Link>
+      </S.MenuWrapper>
+      <Link className="main" to="/main">
+        <img className="mainLogo" src={MMMainLogo} alt="MM Main Logo" />
+      </Link>
+    </S.HeaderWrapper>
   );
 };
+
+const _Link = styled(Link)`
+  width: 15%;
+  height: 15%;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 
 export default Header;

@@ -15,8 +15,8 @@ const Board = () => {
           style={{
             width: "63%",
             height: "30vh",
-            marginTop: "5%",
-            marginLeft: "23%",
+            marginTop: "4.5%",
+            marginLeft: "23.5%",
           }}
           color={settings.color}
           snowflakeCount={settings.snowflakeCount}
