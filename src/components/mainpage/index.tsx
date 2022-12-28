@@ -52,7 +52,9 @@ const MainPage = () => {
         </Link>
       </S.IntroduceWrapper>
       <S.IntroduceWrapper id="second">
-        <S.ArrowImg src={TopArrow} alt="to move top" />
+        <Link to="first" spy={true} smooth={true}>
+          <S.ArrowImg src={TopArrow} alt="to move top" />
+        </Link>
         <S.TextWrapper>
           <img alt="이미지1" src={Menu2} />
           <S.Text>
@@ -65,7 +67,9 @@ const MainPage = () => {
         </Link>
       </S.IntroduceWrapper>
       <S.IntroduceWrapper id="third">
-        <S.ArrowImg src={TopArrow} alt="to move top" />
+        <Link to="second" spy={true} smooth={true}>
+          <S.ArrowImg src={TopArrow} alt="to move top" />
+        </Link>
         <S.TextWrapper>
           <S.Text>
             다른 사람이랑 프로젝트를 진행할 수 있습니다. <br />
