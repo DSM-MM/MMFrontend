@@ -14,7 +14,7 @@ const Introduce: React.FC = () => {
       window.prompt("평점을 입력하세요.(0 ~ 5)");
     const number = Number(evaluateValue);
     e.preventDefault();
-    if (number > 5 || number === null) {
+    if (number > 5 && number < 0 || number === null) {
       customToast("값을 잘못 입력하셨습니다.", "error");
       return;
     } else {
