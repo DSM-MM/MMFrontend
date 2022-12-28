@@ -12,12 +12,19 @@ export const FooterContainer = styled.div`
 export const ImgContainer = styled.div`
   width: 100%;
   height: 50%;
+  display: flex;
+  align-items: center;
   img {
     width: 100px;
     height: 100px;
     position: relative;
-    margin: 30px 0 0 20vw;
+    margin: 30px 20px 0 20vw;
     -webkit-user-drag: none;
+  }
+  span {
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: bold;
   }
 `;
 
@@ -43,6 +50,9 @@ export const GithubWrapper = styled.div`
     align-items: center;
     span {
       margin-left: 10px;
+      :hover {
+        text-decoration: underline;
+      }
     }
   }
   img {
@@ -65,7 +75,7 @@ export const DeveloperWrapper = styled.div`
     margin-right: 20px;
     a {
       margin-bottom: 10px;
-      :hover{
+      :hover {
         text-decoration: underline;
       }
     }
