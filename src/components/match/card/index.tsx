@@ -19,13 +19,13 @@ const Card = ({ id, job, name, introduce, gpa }: PropsType) => (
       </Profile>
       <Text>{name}</Text>
       <Text>"{introduce}"</Text>
-      <GpaText>평점: {gpa}</GpaText>
+      <GpaText>평점: {gpa.toFixed(2)}</GpaText>
     </CardBackground>
   </Link>
 );
 
 const CardBackground = styled.div`
-  width: 200px;
+  width: 180px;
   height: 300px;
   background-color: #343434;
   border-radius: 1rem;
@@ -33,6 +33,8 @@ const CardBackground = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 0 10px;
+  word-wrap: break-word;
   box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.25);
   margin-right: 10px;
   margin-bottom: 10px;
