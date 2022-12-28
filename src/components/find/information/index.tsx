@@ -1,6 +1,7 @@
 import * as S from "./styles";
 import { MMMainLogo } from "../../../assets";
 import styled from "@emotion/styled";
+import test from "../../../assets/image/test-image.jpg";
 
 interface PropsType {
   title: string;
@@ -11,7 +12,7 @@ interface PropsType {
 const Information = ({ title, time, tag }: PropsType) => {
   return (
     <S.CardWrapper>
-      <S.Img src={MMMainLogo} alt="List Img" />
+      <S.Img src={test} alt="List Img" />
       <S.InformationWrapper>
         <S.Title>{title}</S.Title>
         <S.Text>기간: {time}</S.Text>
