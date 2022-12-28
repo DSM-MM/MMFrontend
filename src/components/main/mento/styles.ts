@@ -25,10 +25,11 @@ export const CardWrapper = styled.div`
 `;
 
 export const Card = styled.div`
-  width: 20%;
+  width: 17%;
   height: 300px;
   background-color: #343434;
   color: #ffffff;
+  padding: 0 1.5%;
   border-radius: 5%;
   position: relative;
   display: flex;
