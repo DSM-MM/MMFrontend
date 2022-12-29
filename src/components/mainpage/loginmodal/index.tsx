@@ -84,11 +84,14 @@ const LoginModal = ({ setModal }: PropsType) => {
   const showPasswordInSignUp = () => {
     setSignUpShow(!signUpShow);
   };
+  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+  };
 
   return (
     <S.ModalBackground onClick={() => setModal(false)}>
       <S.ModalItem
-        onSubmit={(e: React.FormEvent<HTMLFormElement>) => e.preventDefault()}
+        onSubmit={onSubmit}
         onClick={(e: React.MouseEvent<HTMLFormElement>) => e.stopPropagation()}
       >
         {signUp ? (
