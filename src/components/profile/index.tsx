@@ -21,6 +21,16 @@ const Profile = () => {
   const [myProject, setMyProject] = useState<MyProjectType>();
   const [update, setUpdate] = useState<boolean>(false);
   const [modal, setModal] = useState<boolean>(false);
+  const field: string[] = [
+    "Frontend",
+    "Backend",
+    "Android",
+    "IOS",
+    "Web Design",
+    "App Design",
+    "Game",
+    "AI",
+  ];
   useEffect(() => {
     getProfile()
       .then((res) => {
@@ -66,10 +76,20 @@ const Profile = () => {
       setUpdate(true);
       return;
     }
+    if (field.includes(changeState.jobGroup)) {
+      alert("들어가있음");
+    }
     setMy(changeState)
       .then(() => {
         setUpdate(false);
         customToast("변경 성공!", "success");
+        setChangeState({
+          email: "",
+          introduction: "",
+          jobGroup: "",
+          language: "",
+          githubLink: "",
+        });
       })
       .catch((error) => console.error(error));
   };
