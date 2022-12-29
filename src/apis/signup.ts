@@ -15,14 +15,11 @@ export const signup = async (
   introduce: string,
   jobGroup: string
 ) => {
-  await axios.post<SignUpType>(
-    `${process.env.REACT_APP_BASE_URL}/signup`,
-    {
-      name: name,
-      email: email,
-      password: password,
-      introduce: introduce,
-      jobGroup: jobGroup,
-    }
-  );
+  await axios.post<SignUpType>(`${process.env.REACT_APP_BASE_URL}/signup`, {
+    name: name,
+    email: email,
+    password: password,
+    introduction: introduce,
+    jobGroup: jobGroup,
+  });
 };
