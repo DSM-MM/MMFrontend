@@ -5,9 +5,10 @@ import { getMento, GetMentoType } from "../../../apis/getMento";
 
 interface PropsType {
   id: string | undefined;
+  state: number;
 }
 
-const MentoCard = ({ id }: PropsType) => {
+const MentoCard = ({ id, state }: PropsType) => {
   const [user, setUser] = useState<GetMentoType>();
   useEffect(() => {
     if (id) {
@@ -15,7 +16,7 @@ const MentoCard = ({ id }: PropsType) => {
         .then((res) => setUser(res.data))
         .catch((err) => console.error(err));
     }
-  }, []);
+  }, [state]);
   return (
     <S.Card>
       <S.SideBar>

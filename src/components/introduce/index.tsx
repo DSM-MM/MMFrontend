@@ -6,9 +6,11 @@ import { Link } from "react-router-dom";
 import { rating } from "../../apis/rating";
 import styled from "@emotion/styled";
 import { customToast } from "../../util/toast/toast";
+import { useState } from "react";
 
 const Introduce: React.FC = () => {
   const id = useParams().id;
+  const [state, setState] = useState<number>(0);
   const evaluate = (e: React.MouseEvent<HTMLButtonElement>) => {
     const evaluateValue: string | null =
       window.prompt("평점을 입력하세요.(0 ~ 5)");
@@ -26,6 +28,7 @@ const Introduce: React.FC = () => {
           .then((res) => {
             console.log(res);
             customToast("평점을 반영하였습니다.", "success");
+            setState(state + 1);
           })
           .catch((err) => {
             console.error(err);
@@ -42,7 +45,7 @@ const Introduce: React.FC = () => {
           <_InnerToInnerWrapper>
             <S.IntroduceText>멘토 소개</S.IntroduceText>
           </_InnerToInnerWrapper>
-          <MentoCard id={id} />
+          <MentoCard id={id} state={state} />
           <S.ButtonWrapper>
             <S.LinkButton onClick={evaluate}>평가하기</S.LinkButton>
             <Link to="/mento">
